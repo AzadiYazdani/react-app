@@ -1,0 +1,21 @@
+.product{
+    width: 200px;
+    height: 200px;
+    margin: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.6rem;
+    border-radius: 1rem;
+    background-color: #61dafb;
+    color: white;
+}
+.btn{
+    padding: 0.3rem 1rem;
+    border: brown;
+    border-radius: 0.3rem;
+    font: inherit;
+    font-size: 0.9rem;
+
+}

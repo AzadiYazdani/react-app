@@ -1,0 +1,16 @@
+.Header-style {
+    background-color: #282c34;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction:column;
+    position: sticky;
+    display: block;
+    top: 0;
+    z-index: 20;
+}
+
+.Header-logo {
+    height: 7vmin;
+    pointer-events: none;
+}

@@ -1,0 +1,63 @@
+.kt-base-row__end {
+    flex-shrink: 0;
+    justify-content: flex-end;
+    margin-right: 10px;
+    max-width: 50%;
+}
+
+.kt-base-row__end, .kt-base-row__start {
+    min-width: 0;
+}
+
+.kt-base-row__center, .kt-base-row__end, .kt-base-row__start {
+    align-items: flex-start;
+    display: flex;
+}
+
+*, :after, :before {
+    box-sizing: inherit;
+    outline-color: #4da9ff;
+}
+
+.kt-selector-row--selectable {
+    cursor: pointer;
+}
+
+.kt-base-row__arrow {
+    line-height: 1;
+    margin: 4px 8px 0 0;
+}
+
+.kt-icon {
+    text-rendering: auto;
+    background-position: 50%;
+    background-size: contain;
+    display: inline-block;
+    font-family: sonnat!important;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-variant: normal;
+    height: 20px;
+    line-height: 1;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.kt-icon--lg {
+    font-size: 1.5rem;
+    height: 24px;
+    width: 24px;
+}
+
+.kt-icon-keyboard-arrow-left:before {
+    content: "\ea13";
+}
+
+.kt-base-row__arrow:before {
+    color: rgba(0,0,0,.32);
+}
+
+.state-height{
+    height: 36px;
+    vertical-align: inherit;
+}
