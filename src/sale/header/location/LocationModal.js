@@ -43,6 +43,7 @@ import StateCity from "./StateCity";
 export default function LocationModal(props) {
 
     const [data, setData] = useState([]);
+    const [states, setStates] = useState([]);
     const [id, setId] = useState('')
 
     useEffect(() => {
@@ -50,6 +51,7 @@ export default function LocationModal(props) {
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
+                console.log('hello data');
                 setData(data);
             })
             .catch((err) => {
@@ -59,7 +61,7 @@ export default function LocationModal(props) {
 
 
     const get_cities = async (id) => {
-        alert(`hello ` + id);
+
         try {
             const data = await (await fetch(`http://localhost:8081/location/states/${id}/cities`)).json()
             setData(data)
