@@ -7,10 +7,10 @@ export default function CityModal(props) {
 
     return (<Modal className="app-right-to-left"
                    {...props}
-                   size="lg"
+                   size="modal-sm"
                    aria-labelledby="contained-modal-title-vcenter"
                    centered>
-        <Modal.Header right-to-left>
+        <Modal.Header>
             <Modal.Title id="contained-modal-title-vcenter">
                 انتخاب شهر
             </Modal.Title>

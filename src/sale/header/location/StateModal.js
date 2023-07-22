@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import StateWithLineButton from "./StateWithLineButton";
 import React, {useState, useEffect} from 'react';
-
+import Form from 'react-bootstrap/Form';
 
 // const states = [
 //     {id: 1, title: 'آذربایجان شرقی'},
@@ -61,18 +61,20 @@ export default function StateModal(props) {
 
     return (<Modal className="app-right-to-left"
                    {...props}
-                   size="lg"
+                   size="modal-sm"
                    aria-labelledby="contained-modal-title-vcenter"
                    centered>
-        <Modal.Header right-to-left>
+        <Modal.Header>
             <Modal.Title id="contained-modal-title-vcenter">
                انتخاب استان
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
+            <Form>
             {Array.isArray(states.response) ? states.response.map((item) => {
                 return <StateWithLineButton show_cities={get_cities} key={item.id} state={item}/>
             }) : ""}
+            </Form>
         </Modal.Body>
         <Modal.Footer>
             <Button onClick={props.onHide}>انتخاب</Button>
