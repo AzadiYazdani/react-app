@@ -44,7 +44,8 @@ export default function LocationModal(props) {
 
     const [data, setData] = useState([]);
     const [states, setStates] = useState([]);
-    const [id, setId] = useState('')
+    const [id, setId] = useState('');
+    const [title, setTitle] = useState('استان');
 
     useEffect(() => {
         fetch('http://localhost:8081/location/states/all')
@@ -52,6 +53,7 @@ export default function LocationModal(props) {
             .then((data) => {
                 console.log(data);
                 console.log('hello data');
+                setStates(data);
                 setData(data);
             })
             .catch((err) => {
@@ -61,7 +63,7 @@ export default function LocationModal(props) {
 
 
     const get_cities = async (id) => {
-
+        setTitle('شهر');
         try {
             const data = await (await fetch(`http://localhost:8081/location/states/${id}/cities`)).json()
             setData(data)
@@ -77,7 +79,7 @@ export default function LocationModal(props) {
                        centered>
             <Modal.Header right-to-left>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    انتخاب شهر
+                    انتخاب {title}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -92,6 +94,11 @@ export default function LocationModal(props) {
         </Modal>);
     }
 
+    const close = () => {
+        props.onHide();
+        setTitle('استان');
+        setData(states);
+    }
 
     return (<Modal className="app-right-to-left"
                    {...props}
@@ -100,7 +107,7 @@ export default function LocationModal(props) {
                    centered>
         <Modal.Header right-to-left>
             <Modal.Title id="contained-modal-title-vcenter">
-                انتخاب استان
+                انتخاب {title}
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -110,7 +117,7 @@ export default function LocationModal(props) {
         </Modal.Body>
         <Modal.Footer>
             <Button onClick={props.onHide}>انتخاب</Button>
-            <Button onClick={props.onHide}>انصراف</Button>
+            <Button onClick={close}>انصراف</Button>
         </Modal.Footer>
     </Modal>);
 }
