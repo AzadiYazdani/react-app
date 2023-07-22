@@ -1,9 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import CountryStateButton from "./CountryStateButton";
-import CountryStateWithLineButton from "./CountryStateWithLineButton";
+import StateWithLineButton from "./StateWithLineButton";
 import React, {useState, useEffect} from 'react';
-import StateCity from "./StateCity";
 
 
 // const states = [
@@ -40,21 +38,16 @@ import StateCity from "./StateCity";
 // ]
 
 
-export default function LocationModal(props) {
+export default function StateModal(props) {
 
-    const [data, setData] = useState([]);
     const [states, setStates] = useState([]);
-    const [id, setId] = useState('');
-    const [title, setTitle] = useState('استان');
 
     useEffect(() => {
         fetch('http://localhost:8081/location/states/all')
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
-                console.log('hello data');
                 setStates(data);
-                setData(data);
             })
             .catch((err) => {
                 console.log(err.message);
@@ -63,41 +56,7 @@ export default function LocationModal(props) {
 
 
     const get_cities = async (id) => {
-        setTitle('شهر');
-        try {
-            const data = await (await fetch(`http://localhost:8081/location/states/${id}/cities`)).json()
-            setData(data)
-        } catch (err) {
-            console.log(err.message)
-        }
-
-
-        return (<Modal className="app-right-to-left"
-                       {...props}
-                       size="lg"
-                       aria-labelledby="contained-modal-title-vcenter"
-                       centered>
-            <Modal.Header right-to-left>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    انتخاب {title}
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                {Array.isArray(data.response) ? data.response.map((item) => {
-                    return <StateCity  key={item.id} city={item}/>
-                }) : ""}
-            </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.onHide}>انتخاب</Button>
-                <Button onClick={props.onHide}>انصراف</Button>
-            </Modal.Footer>
-        </Modal>);
-    }
-
-    const close = () => {
-        props.onHide();
-        setTitle('استان');
-        setData(states);
+        props.onStateClick(id);
     }
 
     return (<Modal className="app-right-to-left"
@@ -107,17 +66,17 @@ export default function LocationModal(props) {
                    centered>
         <Modal.Header right-to-left>
             <Modal.Title id="contained-modal-title-vcenter">
-                انتخاب {title}
+               انتخاب استان
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            {Array.isArray(data.response) ? data.response.map((item) => {
-                return <CountryStateWithLineButton show_cities={get_cities} key={item.id} state={item}/>
+            {Array.isArray(states.response) ? states.response.map((item) => {
+                return <StateWithLineButton show_cities={get_cities} key={item.id} state={item}/>
             }) : ""}
         </Modal.Body>
         <Modal.Footer>
             <Button onClick={props.onHide}>انتخاب</Button>
-            <Button onClick={close}>انصراف</Button>
+            <Button onClick={props.onHide}>انصراف</Button>
         </Modal.Footer>
     </Modal>);
 }
