@@ -3,12 +3,15 @@ import './Header.css'
 import Cart from "./cart/Cart";
 import logo from '../../resource/1.jpg';
 import StateModal from "./location/StateModal";
-import Button from 'react-bootstrap/Button';
-import {useState} from "react";
+import React, {useState} from "react";
 import CityModal from "./location/CityModal";
+import Location from "./location/Location";
 
 
 export default function Header() {
+
+
+    // Show State modal
 
     const [statesModalShow, setStatesModalShow] = useState(false);
 
@@ -20,6 +23,9 @@ export default function Header() {
         setStatesModalShow(true);
     }
 
+
+    // Show Location modal
+
     const [citiesModalShow, setCitiesModalShow] = useState(false);
     const [cities, setCities] = useState([]);
 
@@ -27,7 +33,8 @@ export default function Header() {
         setStatesModalShow(true);
         setCitiesModalShow(false);
     }
-    const handleCitiesShow = async  (id) => {
+
+    const handleCitiesShow = async (id) => {
         try {
             const data = await (await fetch(`http://localhost:8081/location/states/${id}/cities`)).json()
             setCities(data)
@@ -39,12 +46,29 @@ export default function Header() {
         setCitiesModalShow(true);
     }
 
+
+    // Select Cities
+
+    const [selectedCities, setSelectedCities] = useState([]);
+
+    const [numberOfCities, setNumberOfCities] = useState("انتخاب ");
+
+
+    const submitCities = () => {
+        if (selectedCities.length > 0)
+            setNumberOfCities(selectedCities.length.toString());
+        else
+            setNumberOfCities("انتخاب ");
+    }
+
+
     return (
         <div className="Header-style app-right-to-left">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container px-4 px-lg-5">
-                    <a className="navbar-brand" href="#"><img className="Header-logo" src={logo}
-                                                               alt="Coding Beauty logo"/></a>
+                    <a className="navbar-brand" href="#">
+                        <img className="Header-logo" src={logo} alt="Coding Beauty logo"/>
+                    </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -53,10 +77,7 @@ export default function Header() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                             <li className="nav-item">
-                                <Button variant="primary" onClick={handleStatesShow}>
-                                    انتخاب شهر
-                                </Button>
-
+                               <Location onClick={handleStatesShow} numberOfCities={numberOfCities}/>
                                 <StateModal
                                     show={statesModalShow}
                                     onHide={handleStatesClose}
@@ -65,10 +86,11 @@ export default function Header() {
                                 <CityModal
                                     show={citiesModalShow}
                                     onHide={handleCitiesClose}
+                                    onSubmit={submitCities}
                                     arr={cities}
                                 />
                             </li>
-                            <li className="nav-item"><a className="nav-link" href="#">About</a></li>
+                            <li className="nav-item"><a className="nav-link" href="#">درباره ما</a></li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
@@ -82,11 +104,9 @@ export default function Header() {
                                 </ul>
                             </li>
                         </ul>
-
+                        <Cart/>
                     </div>
-                    <Cart/>
                 </div>
             </nav>
-
         </div>);
 }

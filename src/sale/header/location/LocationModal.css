@@ -57,6 +57,6 @@
 }
 
 .state-height{
-    height: 36px;
-    vertical-align: inherit;
+    height: 35px;
+    /*vertical-align: inherit;*/
 }

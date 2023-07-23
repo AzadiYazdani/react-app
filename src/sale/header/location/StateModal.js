@@ -77,8 +77,7 @@ export default function StateModal(props) {
             </Form>
         </Modal.Body>
         <Modal.Footer>
-            <Button onClick={props.onHide}>انتخاب</Button>
-            <Button onClick={props.onHide}>انصراف</Button>
+            <Button onClick={props.onHide}>بستن</Button>
         </Modal.Footer>
     </Modal>);
 }

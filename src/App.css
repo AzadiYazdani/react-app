@@ -46,6 +46,10 @@
     direction: rtl;
 }
 
+.app-left-to-right{
+    direction: ltr;
+}
+
 .hr-divider {
     background-color: rgba(0,0,0,.45);
     border: none;
