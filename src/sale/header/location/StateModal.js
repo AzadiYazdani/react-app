@@ -66,14 +66,14 @@ export default function StateModal(props) {
                    centered>
         <Modal.Header>
             <Modal.Title id="contained-modal-title-vcenter">
-               انتخاب استان
+                انتخاب استان
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <Form>
-            {Array.isArray(states.response) ? states.response.map((item) => {
-                return <StateWithLineButton show_cities={get_cities} key={item.id} state={item}/>
-            }) : ""}
+                {Array.isArray(states.response) ? states.response.map((item) => {
+                    return <StateWithLineButton show_cities={get_cities} key={item.id} state={item}/>
+                }) : ""}
             </Form>
         </Modal.Body>
         <Modal.Footer>

@@ -53,6 +53,9 @@ export default function Header() {
 
     const [numberOfCities, setNumberOfCities] = useState("انتخاب ");
 
+    const get_cities = async (id) => {
+        setNumberOfCities(id);
+    }
 
     const submitCities = () => {
         if (selectedCities.length > 0)
@@ -87,6 +90,7 @@ export default function Header() {
                                     show={citiesModalShow}
                                     onHide={handleCitiesClose}
                                     onSubmit={submitCities}
+                                    onCityChanged={get_cities}
                                     arr={cities}
                                 />
                             </li>

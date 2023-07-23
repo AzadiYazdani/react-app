@@ -5,10 +5,6 @@ import CityButton from "./CityButton";
 export default function CityModal(props) {
 
 
-    const onCityChanged =()=>{
-
-    }
-
     return (<Modal className="app-right-to-left"
                    {...props}
                    size="modal-sm"
@@ -21,7 +17,7 @@ export default function CityModal(props) {
         </Modal.Header>
         <Modal.Body>
             {Array.isArray(props.arr.response) ? props.arr.response.map((item) => {
-                return <CityButton key={item.id} city={item} onChanged={onCityChanged}/>
+                return <CityButton key={item.id} city={item} onChanged={props.onCityChanged}/>
             }) : ""}
         </Modal.Body>
         <Modal.Footer>
