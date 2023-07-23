@@ -11,6 +11,7 @@ import Location from "./location/Location";
 export default function Header() {
 
 
+
     // Show State modal
 
     const [statesModalShow, setStatesModalShow] = useState(false);
@@ -50,11 +51,15 @@ export default function Header() {
     // Select Cities
 
     const [selectedCities, setSelectedCities] = useState([]);
-
     const [numberOfCities, setNumberOfCities] = useState("انتخاب ");
 
-    const get_cities = async (id) => {
-        setNumberOfCities(id);
+
+    const onCityAdded = (id) => {
+        setSelectedCities([...selectedCities, id])
+    }
+
+    const onCityRemoved = (id) => {
+        setSelectedCities(selectedCities.filter((item) =>item !== id))
     }
 
     const submitCities = () => {
@@ -62,6 +67,7 @@ export default function Header() {
             setNumberOfCities(selectedCities.length.toString());
         else
             setNumberOfCities("انتخاب ");
+        handleCitiesClose();
     }
 
 
@@ -90,7 +96,8 @@ export default function Header() {
                                     show={citiesModalShow}
                                     onHide={handleCitiesClose}
                                     onSubmit={submitCities}
-                                    onCityChanged={get_cities}
+                                    onCityAdded={onCityAdded}
+                                    onCityRemoved={onCityRemoved}
                                     arr={cities}
                                 />
                             </li>

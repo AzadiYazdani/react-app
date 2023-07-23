@@ -17,7 +17,9 @@ export default function CityModal(props) {
         </Modal.Header>
         <Modal.Body>
             {Array.isArray(props.arr.response) ? props.arr.response.map((item) => {
-                return <CityButton key={item.id} city={item} onChanged={props.onCityChanged}/>
+                return <CityButton key={item.id} city={item}
+                                   onCityAdded={props.onCityAdded}
+                                   onCityRemoved={props.onCityRemoved}/>
             }) : ""}
         </Modal.Body>
         <Modal.Footer>
