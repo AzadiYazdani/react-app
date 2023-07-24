@@ -1,4 +1,4 @@
-import './LocationModal.css';
+import './Location.css';
 import React from "react";
 import { ChangeEvent } from 'react';
 import * as events from "events";
@@ -7,9 +7,9 @@ export default function CityButton(props)  {
 
     const onChanged = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked) {
-            props.onCityAdded(event.target.value);
+            props.onCityAdded(event.target.value, event.target.name);
         } else {
-            props.onCityRemoved(event.target.value);
+            props.onCityRemoved(event.target.value, event.target.name);
         }
     }
 
@@ -19,8 +19,7 @@ export default function CityButton(props)  {
             <div className="row justify-content-center">
                 <div className="col-10 state-height me-auto mb-2 mb-lg-0 ms-lg-4">
                     <div className="form-check">
-                        {/*onChange={()=>onChanged(city.id)}*/}
-                        <input className="form-check-input" type="checkbox" id={props.city.id} value={props.city.id} onChange={onChanged}/>
+                        <input className="form-check-input" type="checkbox" id={props.city.id} name={props.city.title} value={props.city.id} onChange={onChanged}/>
                         <label className="form-check-label" htmlFor={props.city.id} onChange={onChanged}>{props.city.title} </label>
                         <hr className="hr-divider"/>
                     </div>

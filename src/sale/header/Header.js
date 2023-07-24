@@ -5,12 +5,10 @@ import logo from '../../resource/1.jpg';
 import StateModal from "./location/StateModal";
 import React, {useState} from "react";
 import CityModal from "./location/CityModal";
-import Location from "./location/Location";
+import LocationButton from "./location/LocationButton";
 
 
 export default function Header() {
-
-
 
     // Show State modal
 
@@ -25,7 +23,7 @@ export default function Header() {
     }
 
 
-    // Show Location modal
+    // Show LocationButton modal
 
     const [citiesModalShow, setCitiesModalShow] = useState(false);
     const [cities, setCities] = useState([]);
@@ -37,12 +35,11 @@ export default function Header() {
 
     const handleCitiesShow = async (id) => {
         try {
-            const data = await (await fetch(`http://localhost:8081/location/states/${id}/cities`)).json()
-            setCities(data)
+            const data = await (await fetch(`http://localhost:8081/location/states/${id}/cities`)).json();
+            setCities(data);
         } catch (err) {
-            console.log(err.message)
+            console.log(err.message);
         }
-
         setStatesModalShow(false);
         setCitiesModalShow(true);
     }
@@ -54,12 +51,13 @@ export default function Header() {
     const [numberOfCities, setNumberOfCities] = useState("انتخاب ");
 
 
-    const onCityAdded = (id) => {
-        setSelectedCities([...selectedCities, id])
+    const onCityAdded = (id, title) => {
+        let city = {"id": id, "title": title};
+        setSelectedCities([...selectedCities, city]);
     }
 
-    const onCityRemoved = (id) => {
-        setSelectedCities(selectedCities.filter((item) =>item !== id))
+    const onCityRemoved = (id, title) => {
+        setSelectedCities(selectedCities.filter((item) =>item.id !== id));
     }
 
     const submitCities = () => {
@@ -73,10 +71,10 @@ export default function Header() {
 
     return (
         <div className="Header-style app-right-to-left">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-white">
                 <div className="container px-4 px-lg-5">
                     <a className="navbar-brand" href="#">
-                        <img className="Header-logo" src={logo} alt="Coding Beauty logo"/>
+                        <img className="Header-logo" src={logo} alt="Haraji Home"/>
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -86,8 +84,9 @@ export default function Header() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                             <li className="nav-item">
-                               <Location onClick={handleStatesShow} numberOfCities={numberOfCities}/>
+                                <LocationButton onClick={handleStatesShow} numberOfCities={numberOfCities}/>
                                 <StateModal
+                                    selectedCities={selectedCities}
                                     show={statesModalShow}
                                     onHide={handleStatesClose}
                                     onStateClick={handleCitiesShow}
@@ -115,7 +114,7 @@ export default function Header() {
                                 </ul>
                             </li>
                         </ul>
-                        <Cart/>
+                        <Cart number="2" />
                     </div>
                 </div>
             </nav>

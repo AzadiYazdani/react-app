@@ -1,8 +1,10 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import StateWithLineButton from "./StateWithLineButton";
+import StateButton from "./StateButton";
 import React, {useState, useEffect} from 'react';
 import Form from 'react-bootstrap/Form';
+import CloseButton from 'react-bootstrap/CloseButton';
+
 
 // const states = [
 //     {id: 1, title: 'آذربایجان شرقی'},
@@ -59,27 +61,34 @@ export default function StateModal(props) {
         props.onStateClick(id);
     }
 
-    return (<Modal className="app-right-to-left"
+    return (
+
+        <Modal className="app-right-to-left  align-items-center"
                    {...props}
-                   size="modal-sm"
-                   aria-labelledby="contained-modal-title-vcenter"
-                   centered>
+               size="modal-sm"
+               aria-labelledby="contained-modal-title-vcenter"
+               centered>
         <Modal.Header>
-            <Modal.Title id="contained-modal-title-vcenter">
+            <Modal.Title >
                 انتخاب استان
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <Form>
-                {Array.isArray(states.response) ? states.response.map((item) => {
-                    return <StateWithLineButton show_cities={get_cities} key={item.id} state={item}/>
+            <div>
+                {Array.isArray(props.selectedCities) ? props.selectedCities.map((item) => {
+                    return <div className="tag_list" id={item.id} data-id={item.id}>{item.title}<span>&times;</span>
+                    </div>
                 }) : ""}
-            </Form>
-        </Modal.Body>
-        <Modal.Footer>
-            <Button onClick={props.onHide}>بستن</Button>
-        </Modal.Footer>
-    </Modal>);
+            </div>
+                {Array.isArray(states.response) ? states.response.map((item) => {
+                    return <StateButton show_cities={get_cities} key={item.id} state={item}/>
+                }) : ""}
+         </Modal.Body>
+         <Modal.Footer >
+             <Button onClick={props.onHide}>بستن</Button>
+         </Modal.Footer>
+     </Modal>
+);
 }
 
 

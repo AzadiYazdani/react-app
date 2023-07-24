@@ -1,12 +1,12 @@
-function Cart(){
+function Cart({number}){
     return(
-        <form className="d-flex">
-            <button className="btn btn-outline-dark" type="submit">
-                <i className="bi-cart-fill me-1"></i>
+        <div >
+            <button type="button" class="btn btn-light btn-rounded text-nowrap" >
+                <i className='bi bi-file-text'></i>
                 علاقمندی ها
-                <span className="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                <span className="badge badge-warning bg-dark text-white ms-1 rounded-pill">{number}</span>
             </button>
-        </form>
+        </div>
     )
 }
 export default Cart;

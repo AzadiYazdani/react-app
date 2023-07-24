@@ -60,3 +60,7 @@
     height: 35px;
     /*vertical-align: inherit;*/
 }
+
+.modal-height {
+    height: 70%;
+}

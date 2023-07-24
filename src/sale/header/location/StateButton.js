@@ -1,7 +1,7 @@
-import './LocationModal.css';
+import './Location.css';
 import arrow from '../../../resource/baseline-keyboard-arrow-left.svg';
 
-export default function StateWithLineButton({state, show_cities}) {
+export default function StateButton({state, show_cities}) {
 
     return (
         <div className="container">
