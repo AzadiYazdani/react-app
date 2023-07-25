@@ -1,9 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import StateButton from "./StateButton";
-import React, {useState, useEffect} from 'react';
-import Form from 'react-bootstrap/Form';
-import CloseButton from 'react-bootstrap/CloseButton';
+import React, {useEffect, useState} from 'react';
+import CitySelected from "./CitySelected";
 
 
 // const states = [
@@ -76,8 +75,8 @@ export default function StateModal(props) {
         <Modal.Body>
             <div>
                 {Array.isArray(props.selectedCities) ? props.selectedCities.map((item) => {
-                    return <div className="tag_list" id={item.id} data-id={item.id}>{item.title}<span>&times;</span>
-                    </div>
+                    return <CitySelected key={item.id} city={item}
+                                         onCityRemoved={props.onCityRemoved}/>
                 }) : ""}
             </div>
                 {Array.isArray(states.response) ? states.response.map((item) => {

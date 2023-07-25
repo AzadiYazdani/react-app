@@ -8,7 +8,7 @@ export default function StateButton({state, show_cities}) {
             <a className="nav-link" onClick = {() => show_cities(state.id)} href="#">
                 <div className="row justify-content-center">
                     <div className="col-8 state-height  me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <p>{state.title}</p>
+                        {state.title}
                     </div>
                     <div className="col-2 state-height">
                         <img src={arrow} alt="Coding Beauty logo"></img>

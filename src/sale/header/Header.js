@@ -56,8 +56,16 @@ export default function Header() {
         setSelectedCities([...selectedCities, city]);
     }
 
-    const onCityRemoved = (id, title) => {
-        setSelectedCities(selectedCities.filter((item) =>item.id !== id));
+    const onCityRemoved = (checkedId, title) => {
+        let city = {"id": checkedId, "title": title};
+
+        let index = selectedCities.indexOf(city);
+        if (index >= -1) {
+            //Removing values from array
+            selectedCities.splice(index, 1);
+        }
+        setSelectedCities([...selectedCities]);
+        submitCities();
     }
 
     const submitCities = () => {
@@ -89,6 +97,7 @@ export default function Header() {
                                     selectedCities={selectedCities}
                                     show={statesModalShow}
                                     onHide={handleStatesClose}
+                                    onCityRemoved={onCityRemoved}
                                     onStateClick={handleCitiesShow}
                                 />
                                 <CityModal
@@ -114,7 +123,7 @@ export default function Header() {
                                 </ul>
                             </li>
                         </ul>
-                        <Cart number="2" />
+                        <Cart number="2"/>
                     </div>
                 </div>
             </nav>

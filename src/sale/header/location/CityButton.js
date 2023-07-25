@@ -1,7 +1,5 @@
 import './Location.css';
-import React from "react";
-import { ChangeEvent } from 'react';
-import * as events from "events";
+import React, {ChangeEvent} from "react";
 
 export default function CityButton(props)  {
 
@@ -26,21 +24,5 @@ export default function CityButton(props)  {
                 </div>
             </div>
         </div>
-
-
-        // <div className="container">
-        // <a className="nav-link" href="#">
-        // <div className="row justify-content-center">
-        // <div className="col-10 state-height me-auto mb-2 mb-lg-0 ms-lg-4">
-        // <Form.Check
-        //                     value={city.id}
-        //                     id={city.id}
-        //                     label={city.title}
-        //                 />
-        //             </div>
-        //         </div>
-        //         <hr className="hr-divider"/>
-        //     </a>
-        // </div>
     );
 }
