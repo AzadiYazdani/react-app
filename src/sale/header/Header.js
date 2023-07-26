@@ -113,6 +113,7 @@ return (
                                 onStateClick={handleCitiesShow}
                             />
                             <CityModal
+                                selectedCities={selectedCities}
                                 show={citiesModalShow}
                                 onHide={handleCitiesClose}
                                 onSubmit={submitCities}

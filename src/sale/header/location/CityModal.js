@@ -17,8 +17,13 @@ export default function CityModal(props) {
         </Modal.Header>
         <Modal.Body>
             {Array.isArray(props.arr.response) ? props.arr.response.map((item) => {
+
+                const found = props.selectedCities.find(obj => {
+                    return obj.id === item.id;
+                });
+
                 return <CityButton key={item.id} city={item}
-                                   // value={false}
+                                   value={found}
                                    onCityAdded={props.onCityAdded}
                                    onCityRemoved={props.onCityRemoved}/>
             }) : ""}
