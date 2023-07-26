@@ -1,4 +1,4 @@
-import {Modal, Button} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 import React from 'react';
 import CityButton from "./CityButton";
 
@@ -18,6 +18,7 @@ export default function CityModal(props) {
         <Modal.Body>
             {Array.isArray(props.arr.response) ? props.arr.response.map((item) => {
                 return <CityButton key={item.id} city={item}
+                                   value={false}
                                    onCityAdded={props.onCityAdded}
                                    onCityRemoved={props.onCityRemoved}/>
             }) : ""}

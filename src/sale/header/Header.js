@@ -54,6 +54,7 @@ export default function Header() {
     const onCityAdded = (id, title) => {
         let city = {"id": id, "title": title};
         setSelectedCities([...selectedCities, city]);
+        updateNumberOfCities();
     }
 
     const onCityRemoved = (checkedId, title) => {
@@ -65,14 +66,19 @@ export default function Header() {
             selectedCities.splice(index, 1);
         }
         setSelectedCities([...selectedCities]);
-        submitCities();
+        updateNumberOfCities();
     }
 
-    const submitCities = () => {
+    const updateNumberOfCities = () => {
         if (selectedCities.length > 0)
             setNumberOfCities(selectedCities.length.toString());
         else
             setNumberOfCities("انتخاب ");
+    }
+
+
+    const submitCities = () => {
+        updateNumberOfCities();
         handleCitiesClose();
     }
 
