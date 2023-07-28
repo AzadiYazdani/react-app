@@ -3,15 +3,8 @@ import React, {ChangeEvent, useState} from "react";
 
 export default function CityButton(props)  {
 
-    const [checked, setChecked] = useState(false);
 
     const onChanged = (event: ChangeEvent<HTMLInputElement>) => {
-        // setChecked(!checked);
-        // if (checked) {
-        //     props.onCityAdded(event.target.value, event.target.name);
-        // } else {
-        //     props.onCityRemoved(event.target.value, event.target.name);
-        // }
         if (event.target.checked) {
             props.onCityAdded(event.target.value, event.target.name);
         } else {
@@ -27,7 +20,7 @@ export default function CityButton(props)  {
                         <input className="form-check-input" type="checkbox"
                                id={props.city.id}
                                name={props.city.title}
-                               checked={props.value}
+                               defaultChecked={props.value}
                                value={props.city.id}
                                onChange={onChanged}
                         />
