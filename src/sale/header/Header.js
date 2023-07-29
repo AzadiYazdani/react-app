@@ -6,6 +6,8 @@ import StateModal from "./location/StateModal";
 import React, {useState} from "react";
 import CityModal from "./location/CityModal";
 import LocationButton from "./location/LocationButton";
+import BusinessTypeButton from "./businessType/BusinessTypeButton";
+import BusinessTypeModal from "./businessType/BusinessTypeModal";
 
 
 export default function Header() {
@@ -76,7 +78,6 @@ export default function Header() {
     }
 
     const updateNumberOfCities = () => {
-
         if (selectedCities.length === 1) {
             let city = selectedCities[0];
             setNumberOfCities(city.title);
@@ -99,6 +100,72 @@ export default function Header() {
     const submitCities = () => {
         updateNumberOfCities();
         handleCitiesClose();
+    }
+
+
+    // Show BusinessTypeModal
+
+    const [businessTypeModalShow, setBusinessTypeModalShow] = useState(false);
+
+    const handleBusinessTypeModalClose = () => {
+        setBusinessTypeModalShow(false);
+    }
+
+    const handleBusinessTypeModalShow = () => {
+        setBusinessTypeModalShow(true);
+    }
+
+    const [selectedBusinessTypes, setSelectedBusinessTypes] = useState([]);
+    const [numberOfBusinessTypes, setNumberOfBusinessTypes] = useState("انتخاب نوع کسب و کار");
+
+
+    const onBusinessTypeAdded = (id, title) => {
+        let businessType = {"id": id, "title": title};
+
+        const found = selectedBusinessTypes.find(obj => {
+            return obj.id === id;
+        });
+        if (!found) {
+            setSelectedBusinessTypes([...selectedBusinessTypes, businessType]);
+        }
+        updateNumberOfBusinessTypes();
+    }
+
+    const onBusinessTypeRemoved = (checkedId, title) => {
+        let businessType = {"id": checkedId, "title": title};
+
+        let index = selectedCities.indexOf(businessType);
+        if (index >= -1) {
+            //Removing values from array
+            selectedBusinessTypes.splice(index, 1);
+        }
+        setSelectedBusinessTypes([...selectedBusinessTypes]);
+        updateNumberOfBusinessTypes();
+    }
+
+    const updateNumberOfBusinessTypes = () => {
+        if (selectedBusinessTypes.length === 1) {
+            let city = selectedBusinessTypes[0];
+            setNumberOfBusinessTypes(city.title);
+        }
+        else if (selectedBusinessTypes.length === 2) {
+            let businessType1 = selectedBusinessTypes[0];
+            let businessType2 = selectedBusinessTypes[1];
+            setNumberOfBusinessTypes(businessType1.title +', ' + businessType2.title);
+        }
+        else if (selectedBusinessTypes.length > 2) {
+            let businessType1 = selectedBusinessTypes[0];
+            let businessType2 = selectedBusinessTypes[1];
+            setNumberOfBusinessTypes(businessType1.title +', ' + businessType2.title + '...');
+        }
+        else
+            setNumberOfBusinessTypes("انتخاب نوع کسب و کار");
+    }
+
+
+    const submitBusinessTypes = () => {
+        updateNumberOfBusinessTypes();
+        handleBusinessTypeModalClose();
     }
 
 
@@ -133,6 +200,15 @@ export default function Header() {
                                     onCityAdded={onCityAdded}
                                     onCityRemoved={onCityRemoved}
                                     arr={cities}
+                                />
+                                <BusinessTypeButton onClick={handleBusinessTypeModalShow} numberOfBusinessTypes={numberOfBusinessTypes}/>
+                                <BusinessTypeModal
+                                    selectedBusinessTypes={selectedBusinessTypes}
+                                    show={businessTypeModalShow}
+                                    onHide={handleBusinessTypeModalClose}
+                                    onSubmit={submitBusinessTypes}
+                                    onBusinessTypeAdded={onBusinessTypeAdded}
+                                    onBusinessTypeRemoved={onBusinessTypeRemoved}
                                 />
                             </li>
                             <li className="nav-item"><a className="nav-link" href="#">درباره ما</a></li>

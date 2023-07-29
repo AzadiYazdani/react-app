@@ -1,9 +1,23 @@
 import {Button, Modal} from 'react-bootstrap';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import BusinessTypeButton from "./BusinessTypeButton";
+import BusinessTypeSelected from "./BusinessTypeSelected";
 
 export default function BusinessTypeModal(props) {
 
+    const [businessTypes, setBusinessTypes] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:8081/businessType/all')
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setBusinessTypes(data);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
 
     return (<Modal className="app-right-to-left"
                    {...props}
@@ -16,17 +30,14 @@ export default function BusinessTypeModal(props) {
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            {Array.isArray(props.arr.response) ? props.arr.response.map((item) => {
-
-                const found = props.selectedCities.some(element => {
-                    if (element.id.toString() === item.id.toString()) {
-                        return true;
-                    }
-                });
-                return <BusinessTypeButton key={item.id} city={item}
-                                           value={found}
-                                           onCityAdded={props.onCityAdded}
-                                           onCityRemoved={props.onCityRemoved}/>
+            <div>
+                {Array.isArray(props.selectedBusinessTypes) ? props.selectedBusinessTypes.map((item) => {
+                    return <BusinessTypeSelected key={item.id} businessType={item}
+                                         onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
+                }) : ""}
+            </div>
+            {Array.isArray(businessTypes.response) ? businessTypes.response.map((item) => {
+                return <BusinessTypeButton key={item.id} businessType={item}/>
             }) : ""}
         </Modal.Body>
         <Modal.Footer>
