@@ -5,8 +5,7 @@ import logo from '../../resource/1.jpg';
 import StateModal from "./location/StateModal";
 import React, {useState} from "react";
 import CityModal from "./location/CityModal";
-import LocationButton from "./location/LocationButton";
-import BusinessTypeButton from "./businessType/BusinessTypeButton";
+import LocationSelectButton from "./location/LocationSelectButton";
 import BusinessTypeModal from "./businessType/BusinessTypeModal";
 
 
@@ -184,7 +183,7 @@ export default function Header() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                             <li className="nav-item">
-                                <LocationButton onClick={handleStatesShow} numberOfCities={numberOfCities}/>
+                                <LocationSelectButton onClick={handleStatesShow} numberOfCities={numberOfCities}/>
                                 <StateModal
                                     selectedCities={selectedCities}
                                     show={statesModalShow}
@@ -201,7 +200,7 @@ export default function Header() {
                                     onCityRemoved={onCityRemoved}
                                     arr={cities}
                                 />
-                                <BusinessTypeButton onClick={handleBusinessTypeModalShow} numberOfBusinessTypes={numberOfBusinessTypes}/>
+                                <LocationSelectButton onClick={handleBusinessTypeModalShow} numberOfBusinessTypes={numberOfBusinessTypes}/>
                                 <BusinessTypeModal
                                     selectedBusinessTypes={selectedBusinessTypes}
                                     show={businessTypeModalShow}
