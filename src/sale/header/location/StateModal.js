@@ -61,7 +61,6 @@ export default function StateModal(props) {
     }
 
     return (
-
         <Modal className="app-right-to-left  align-items-center"
                    {...props}
                size="modal-sm"

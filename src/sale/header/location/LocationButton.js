@@ -8,7 +8,7 @@ export default function LocationButton({onClick, numberOfCities}) {
             <div className="d-flex">
                 <button className="btn btn-light" onClick={onClick}>
                     <i className='bi bi-geo-alt'></i>
-                    {numberOfCities}شهر
+                    {numberOfCities}
                 </button>
             </div>
         </li>

@@ -1,7 +1,7 @@
 import './Location.css';
 import React, {ChangeEvent} from "react";
 
-export default function CityButton(props)  {
+export default function BusinessTypeButton(props)  {
 
 
     const onChanged = (event: ChangeEvent<HTMLInputElement>) => {
