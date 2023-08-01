@@ -8,7 +8,7 @@ export default function BusinessTypeModal(props) {
     const [businessTypes, setBusinessTypes] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8081/businessType/all')
+        fetch('http://localhost:8081/businesstype/all')
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
@@ -25,19 +25,23 @@ export default function BusinessTypeModal(props) {
                    aria-labelledby="contained-modal-title-vcenter"
                    centered>
         <Modal.Header>
-            <Modal.Title id="contained-modal-title-vcenter ">
-                 نوع کسب و کار
+            <Modal.Title id="contained-modal-title-vcenter">
+                نوع کسب و کار
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <div>
                 {Array.isArray(props.selectedBusinessTypes) ? props.selectedBusinessTypes.map((item) => {
                     return <BusinessTypeSelected key={item.id} businessType={item}
-                                         onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
+                                                 onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
                 }) : ""}
             </div>
             {Array.isArray(businessTypes.response) ? businessTypes.response.map((item) => {
-                return <BusinessTypeButton key={item.id} businessType={item}/>
+                return <BusinessTypeButton
+                    key={item.id}
+                    businessType={item}
+                    onBusinessTypeAdded ={props.onBusinessTypeAdded }
+                    onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
             }) : ""}
         </Modal.Body>
         <Modal.Footer>

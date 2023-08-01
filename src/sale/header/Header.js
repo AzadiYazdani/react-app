@@ -7,6 +7,7 @@ import React, {useState} from "react";
 import CityModal from "./location/CityModal";
 import LocationSelectButton from "./location/LocationSelectButton";
 import BusinessTypeModal from "./businessType/BusinessTypeModal";
+import BusinessTypeSelectButton from "./businessType/BusinessTypeSelectButton";
 
 
 export default function Header() {
@@ -49,7 +50,7 @@ export default function Header() {
     // Select Cities
 
     const [selectedCities, setSelectedCities] = useState([]);
-    const [numberOfCities, setNumberOfCities] = useState("انتخاب شهر");
+    const [numberOfCities, setNumberOfCities] = useState("شهر");
 
 
     const onCityAdded = (id, title) => {
@@ -92,7 +93,7 @@ export default function Header() {
             setNumberOfCities(city1.title +', ' + city2.title + '...');
         }
         else
-            setNumberOfCities("انتخاب شهر");
+            setNumberOfCities("شهر");
     }
 
 
@@ -115,7 +116,7 @@ export default function Header() {
     }
 
     const [selectedBusinessTypes, setSelectedBusinessTypes] = useState([]);
-    const [numberOfBusinessTypes, setNumberOfBusinessTypes] = useState("انتخاب نوع کسب و کار");
+    const [numberOfBusinessTypes, setNumberOfBusinessTypes] = useState("نوع کسب و کار");
 
 
     const onBusinessTypeAdded = (id, title) => {
@@ -132,7 +133,6 @@ export default function Header() {
 
     const onBusinessTypeRemoved = (checkedId, title) => {
         let businessType = {"id": checkedId, "title": title};
-
         let index = selectedCities.indexOf(businessType);
         if (index >= -1) {
             //Removing values from array
@@ -158,7 +158,7 @@ export default function Header() {
             setNumberOfBusinessTypes(businessType1.title +', ' + businessType2.title + '...');
         }
         else
-            setNumberOfBusinessTypes("انتخاب نوع کسب و کار");
+            setNumberOfBusinessTypes("نوع کسب و کار");
     }
 
 
@@ -200,7 +200,9 @@ export default function Header() {
                                     onCityRemoved={onCityRemoved}
                                     arr={cities}
                                 />
-                                <LocationSelectButton onClick={handleBusinessTypeModalShow} numberOfBusinessTypes={numberOfBusinessTypes}/>
+                            </li>
+                            <li className="nav-item">
+                                <BusinessTypeSelectButton onClick={handleBusinessTypeModalShow} numberOfBusinessTypes={numberOfBusinessTypes}/>
                                 <BusinessTypeModal
                                     selectedBusinessTypes={selectedBusinessTypes}
                                     show={businessTypeModalShow}
