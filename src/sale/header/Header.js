@@ -8,6 +8,7 @@ import CityModal from "./location/CityModal";
 import LocationSelectButton from "./location/LocationSelectButton";
 import BusinessTypeModal from "./businessType/BusinessTypeModal";
 import BusinessTypeSelectButton from "./businessType/BusinessTypeSelectButton";
+import SearchBar from "./searchBar/SearchBar";
 
 
 export default function Header() {
@@ -52,7 +53,6 @@ export default function Header() {
     const [selectedCities, setSelectedCities] = useState([]);
     const [numberOfCities, setNumberOfCities] = useState("شهر");
 
-
     const onCityAdded = (id, title) => {
         let city = {"id": id, "title": title};
 
@@ -96,10 +96,9 @@ export default function Header() {
             setNumberOfCities("شهر");
     }
 
-
     const submitCities = () => {
         updateNumberOfCities();
-        handleCitiesClose();
+        handleStatesClose();
     }
 
 
@@ -200,6 +199,7 @@ export default function Header() {
                                     onCityRemoved={onCityRemoved}
                                     arr={cities}
                                 />
+
                             </li>
                             <li className="nav-item">
                                 <BusinessTypeSelectButton onClick={handleBusinessTypeModalShow} numberOfBusinessTypes={numberOfBusinessTypes}/>
@@ -211,6 +211,9 @@ export default function Header() {
                                     onBusinessTypeAdded={onBusinessTypeAdded}
                                     onBusinessTypeRemoved={onBusinessTypeRemoved}
                                 />
+                            </li>
+                            <li  className="nav-item">
+                                <SearchBar/>
                             </li>
                             <li className="nav-item"><a className="nav-link" href="#">درباره ما</a></li>
                             <li className="nav-item dropdown">

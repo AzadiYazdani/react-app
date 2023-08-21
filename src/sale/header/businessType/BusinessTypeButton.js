@@ -5,6 +5,7 @@ export default function BusinessTypeButton(props)  {
 
 
     const onChanged = (event: ChangeEvent<HTMLInputElement>) => {
+        console.log('AZADI Am');
         if (event.target.checked) {
             props.onBusinessTypeAdded(event.target.value, event.target.name);
         } else {

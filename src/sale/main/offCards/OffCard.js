@@ -3,9 +3,9 @@ import './OffCard.css'
 
 export default function OffCard(props) {
     return (
-        <div className="col mb-5">
-            <a href="##">
-                <div className="card h-100">
+        <div className="col-xs-6 .col-sm-3">
+            <a href="src/sale/main/offCards/OffCard##">
+                <div className="card">
                     <div className="bg-image hover-overlay ripple">
                         <img className="card-img-top" src={props.imageUrl} alt={props.alt}/>
 
