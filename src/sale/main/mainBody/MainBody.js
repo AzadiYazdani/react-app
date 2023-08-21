@@ -1,16 +1,21 @@
-import OffCard from "../offCards/OffCard";
 import NewCard from "../offCards/NewCard";
 
 export default function MainBody() {
     return (
-            <div className="row col-9" >
-              <NewCard/>
-
-                <OffCard imageUrl="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+            <div className="row col-12 col-md-10 bg" >
+              <NewCard imageUrl="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+                       alt="Hi" title="Fancy Products" lowPrice="40.00" highPrice="80.00"
+                       type="پوشاک زنانه" city="تهران" place="هفت حوض" oldPrice="20.00" newPrice="18.00"/>
+                <NewCard imageUrl="https://mdbootstrap.com/img/new/standard/nature/111.webp"
                          alt="Hi" title="Fancy Products" lowPrice="40.00" highPrice="80.00"
-                         type="پوشاک زنانه"
-                         city="تهران" place="هفت حوض"
-                         oldPrice="20.00" newPrice="18.00"/>
+                         type="پوشاک زنانه" city="تهران" place="هفت حوض" oldPrice="20.00" newPrice="18.00"/>
+                <NewCard/>
+                <NewCard/><NewCard/>
+                {/*<OffCard imageUrl="https://mdbootstrap.com/img/new/standard/nature/111.webp"*/}
+                {/*         alt="Hi" title="Fancy Products" lowPrice="40.00" highPrice="80.00"*/}
+                {/*         type="پوشاک زنانه"*/}
+                {/*         city="تهران" place="هفت حوض"*/}
+                {/*         oldPrice="20.00" newPrice="18.00"/>*/}
                 {/*<OffCard imageUrl="https://mdbootstrap.com/img/new/standard/nature/111.webp"*/}
                 {/*         alt="Hi" title="Fancy Products" lowPrice="40.00" highPrice="80.00"*/}
                 {/*         type="پوشاک مردانه"*/}

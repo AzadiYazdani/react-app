@@ -17,7 +17,7 @@ export default function RightPane() {
     }, []);
 
     return (
-        <div  className="col-3 ">
+        <div className="col-md-2 app-left-to-right d-none d-md-block bg-body-secondary border border-1 rounded-2"  >
             {Array.isArray(businessTypes.response) ? businessTypes.response.map((item) => {
                 return <BusinessTypeButton
                     key={item.id}

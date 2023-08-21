@@ -3,12 +3,11 @@ import './OffCard.css'
 
 export default function OffCard(props) {
     return (
-        <div className="col-xs-6 .col-sm-3">
+        <div className="col-12 col-sm-5 col-md-4 col-lg-3 my-2" style={{height:'30rem'}}>
             <a href="src/sale/main/offCards/OffCard##">
                 <div className="card">
                     <div className="bg-image hover-overlay ripple">
                         <img className="card-img-top" src={props.imageUrl} alt={props.alt}/>
-
                         <div className="card-body p-4">
                             <div className="text-center">
                                 <h5 className="fw-bolder">{props.title}</h5>

@@ -9,11 +9,11 @@ import React from "react";
 
 function App() {
 
-    return (<div className="rtl">
+    return (<div className=" row rtl">
         <Header/>
         <Banner/>
 
-        <div className="row py-5 container">
+        <div className="row col-12 py-5 container">
             <MainBody/>
             <RightPane/>
         </div>

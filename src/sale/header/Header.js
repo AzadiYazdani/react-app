@@ -168,9 +168,9 @@ export default function Header() {
 
 
     return (
-        <div className="Header-style app-right-to-left">
+        <div className=" row Header-style app-right-to-left">
             <nav className="navbar navbar-expand-lg navbar-light bg-white">
-                <div className="container px-4 px-lg-5">
+                <div className="container pe-1 ps-1 mx-0">
                     <a className="navbar-brand" href="#">
                         <img className="Header-logo" src={logo} alt="Haraji Home"/>
                     </a>
@@ -180,7 +180,7 @@ export default function Header() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <ul className="navbar-nav">
                             <li className="nav-item">
                                 <LocationSelectButton onClick={handleStatesShow} numberOfCities={numberOfCities}/>
                                 <StateModal
