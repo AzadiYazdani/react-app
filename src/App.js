@@ -9,8 +9,10 @@ import OffCanvasHeader from "./sale/header/OffCanvasHeader";
 
 function App() {
 
-    return (<div className=" row rtl">
-        <OffCanvasHeader/>
+    return (
+        <div className="row font-vazir">
+            <OffCanvasHeader/>
+
         <Banner/>
 
         <div className="row col-12 py-5 container">
