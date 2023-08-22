@@ -81,18 +81,15 @@ export default function Header() {
         if (selectedCities.length === 1) {
             let city = selectedCities[0];
             setNumberOfCities(city.title);
-        }
-        else if (selectedCities.length === 2) {
+        } else if (selectedCities.length === 2) {
             let city1 = selectedCities[0];
             let city2 = selectedCities[1];
-            setNumberOfCities(city1.title +', ' + city2.title);
-        }
-        else if (selectedCities.length > 2) {
+            setNumberOfCities(city1.title + ', ' + city2.title);
+        } else if (selectedCities.length > 2) {
             let city1 = selectedCities[0];
             let city2 = selectedCities[1];
-            setNumberOfCities(city1.title +', ' + city2.title + '...');
-        }
-        else
+            setNumberOfCities(city1.title + ', ' + city2.title + '...');
+        } else
             setNumberOfCities("شهر");
     }
 
@@ -145,18 +142,15 @@ export default function Header() {
         if (selectedBusinessTypes.length === 1) {
             let city = selectedBusinessTypes[0];
             setNumberOfBusinessTypes(city.title);
-        }
-        else if (selectedBusinessTypes.length === 2) {
+        } else if (selectedBusinessTypes.length === 2) {
             let businessType1 = selectedBusinessTypes[0];
             let businessType2 = selectedBusinessTypes[1];
-            setNumberOfBusinessTypes(businessType1.title +', ' + businessType2.title);
-        }
-        else if (selectedBusinessTypes.length > 2) {
+            setNumberOfBusinessTypes(businessType1.title + ', ' + businessType2.title);
+        } else if (selectedBusinessTypes.length > 2) {
             let businessType1 = selectedBusinessTypes[0];
             let businessType2 = selectedBusinessTypes[1];
-            setNumberOfBusinessTypes(businessType1.title +', ' + businessType2.title + '...');
-        }
-        else
+            setNumberOfBusinessTypes(businessType1.title + ', ' + businessType2.title + '...');
+        } else
             setNumberOfBusinessTypes("نوع کسب و کار");
     }
 
@@ -168,18 +162,21 @@ export default function Header() {
 
 
     return (
-        <div className=" row Header-style app-right-to-left">
-            <nav className="navbar navbar-expand-lg navbar-light bg-white">
-                <div className="container pe-1 ps-1 mx-0">
-                    <a className="navbar-brand" href="#">
-                        <img className="Header-logo" src={logo} alt="Haraji Home"/>
-                    </a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="rowHeader-style app-right-to-left">
+            <nav className="bg-info col-12 navbar navbar-expand-lg navbar-light">
+                <div className="bg-primary container ">
+                    <div>
+                        <a className="navbar-brand" href="#">
+                            <img className="Header-logo" src={logo} alt="Haraji Home"/>
+                        </a>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div className="bg-danger col-10 collapse navbar-collapse justify-content-end"
+                         id="navbarSupportedContent">
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <LocationSelectButton onClick={handleStatesShow} numberOfCities={numberOfCities}/>
@@ -202,7 +199,8 @@ export default function Header() {
 
                             </li>
                             <li className="nav-item">
-                                <BusinessTypeSelectButton onClick={handleBusinessTypeModalShow} numberOfBusinessTypes={numberOfBusinessTypes}/>
+                                <BusinessTypeSelectButton onClick={handleBusinessTypeModalShow}
+                                                          numberOfBusinessTypes={numberOfBusinessTypes}/>
                                 <BusinessTypeModal
                                     selectedBusinessTypes={selectedBusinessTypes}
                                     show={businessTypeModalShow}
@@ -212,7 +210,7 @@ export default function Header() {
                                     onBusinessTypeRemoved={onBusinessTypeRemoved}
                                 />
                             </li>
-                            <li  className="nav-item">
+                            <li className="nav-item">
                                 <SearchBar/>
                             </li>
                             <li className="nav-item"><a className="nav-link" href="#">درباره ما</a></li>
