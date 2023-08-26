@@ -1,5 +1,4 @@
 import './App.css';
-import Footer from "./sale/footer/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RightPane from "./sale/main/rightPane/RightPane";
 import MainBody from "./sale/main/mainBody/MainBody";
@@ -10,16 +9,16 @@ import Carousel from "./sale/banner/Carousel";
 function App() {
 
     return (
-        <div className="font-vazir">
+        <div >
             <OffCanvasHeader/>
-        <Carousel/>
+            <Carousel/>
 
-        <div className="row container">
-            <MainBody/>
-            <RightPane/>
-        </div>
-        <Footer/>
-    </div>);
+            <div className="row  flex-nowrap container m-0 p-0">
+                <MainBody/>
+                <RightPane/>
+            </div>
+            {/*<Footer/>*/}
+        </div>);
 }
 
 export default App;

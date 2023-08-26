@@ -2,15 +2,17 @@ import NewCard from "../offCards/NewCard";
 
 export default function MainBody() {
     return (
-            <div className="row col-12 col-md-10 bg" >
+            <div className="row col-12 col-md-10 bg-black m-0 pt-1 p-0" >
               <NewCard imageUrl="https://mdbootstrap.com/img/new/standard/nature/111.webp"
                        alt="Hi" title="Fancy Products" lowPrice="40.00" highPrice="80.00"
                        type="پوشاک زنانه" city="تهران" place="هفت حوض" oldPrice="20.00" newPrice="18.00"/>
                 <NewCard imageUrl="https://mdbootstrap.com/img/new/standard/nature/111.webp"
                          alt="Hi" title="Fancy Products" lowPrice="40.00" highPrice="80.00"
                          type="پوشاک زنانه" city="تهران" place="هفت حوض" oldPrice="20.00" newPrice="18.00"/>
-                <NewCard/>
-                <NewCard/><NewCard/>
+                <NewCard imageUrl="https://mdbootstrap.com/img/new/standard/nature/111.webp"
+                         alt="Hi" title="Fancy Products" lowPrice="40.00" highPrice="80.00"
+                         type="پوشاک زنانه" city="تهران" place="هفت حوض" oldPrice="20.00" newPrice="18.00"/>
+              {/*  <NewCard/><NewCard/>*/}
                 {/*<OffCard imageUrl="https://mdbootstrap.com/img/new/standard/nature/111.webp"*/}
                 {/*         alt="Hi" title="Fancy Products" lowPrice="40.00" highPrice="80.00"*/}
                 {/*         type="پوشاک زنانه"*/}

@@ -3,7 +3,7 @@ import {MDBCarousel, MDBCarouselItem,} from 'mdb-react-ui-kit';
 
 export default function Carousel() {
     return (
-        <MDBCarousel showIndicators showControls fade>
+        <MDBCarousel showIndicators showControls fade className=" m-0 p-0">
             <MDBCarouselItem
                 className='w-100 d-block'
                 itemId={1}

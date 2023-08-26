@@ -45,7 +45,7 @@
 .kt-icon--lg {
     font-size: 1.5rem;
     height: 24px;
-    width: 24px;
+    /*width: 24px;*/
 }
 
 .kt-icon-keyboard-arrow-left:before {

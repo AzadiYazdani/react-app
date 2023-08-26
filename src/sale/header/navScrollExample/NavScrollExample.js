@@ -1,13 +1,11 @@
-import '../../App.css';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import React from "react";
 
-export default function OffCanvasHeader() {
+function NavScrollExample() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
@@ -49,3 +47,5 @@ export default function OffCanvasHeader() {
         </Navbar>
     );
 }
+
+export default NavScrollExample;
