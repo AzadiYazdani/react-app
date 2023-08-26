@@ -10,9 +10,36 @@
 
 }
 
-.font-vazir{
+.font-vazir-10{
     font-family: "vazir";
+    font-size: 10px;
 }
+
+
+.font-vazir-12{
+    font-family: "vazir";
+    font-size: 12px;
+}
+
+.font-vazir-13{
+    font-family: "vazir";
+    font-size: 13px;
+}
+
+.font-vazir-14{
+    font-family: "vazir";
+    font-size: 14px;
+}
+
+.font-vazir-15{
+    font-family: "vazir";
+    font-size: 15px;
+}
+.font-vazir-16{
+    font-family: "vazir";
+    font-size: 16px;
+}
+
 
 .App-header {
     background-color: #282c34;
