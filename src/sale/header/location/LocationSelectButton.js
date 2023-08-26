@@ -4,11 +4,13 @@ import React from "react";
 export default function LocationSelectButton({onClick, numberOfCities}) {
 
     return (
-        <li className="nav-item">
-            <a className="nav-link btn-light" href="#" onClick={onClick}>
-                <i className='bi bi-geo-alt'></i>
-                {numberOfCities}
-            </a>
-        </li>
+        <div>
+            <button type="button" className="btn btn-light btn-rounded text-nowrap" onClick={onClick}>
+                <div className="font-vazir-13">
+                    <i className='bi bi-geo-alt'/>
+                    {numberOfCities}
+                </div>
+            </button>
+        </div>
     )
 };
