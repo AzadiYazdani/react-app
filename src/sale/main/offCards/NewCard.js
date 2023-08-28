@@ -4,9 +4,8 @@ import React from "react";
 
 export default function NewCard(props) {
     return (
-        // style={{ width: '18rem' }}
-        <div className="col-12 col-sm-6 col-md-4 col-lg-3 m-0 p-0">
-            <Card className="h-100 bg-image hover-overlay align-items-lg-center text-center">
+        <div className=" m-0 p-0">
+            <Card className="h-100 hover-overlay align-items-lg-center text-center">
                 <Card.Img variant="top" src="https://mdbootstrap.com/img/new/standard/nature/111.webp"/>
                 <Card.Body>
                     <Card.Title><h5 className="fw-bolder">{props.title}</h5></Card.Title>
