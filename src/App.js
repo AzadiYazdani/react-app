@@ -3,13 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import RightPane from "./sale/main/rightPane/RightPane";
 import MainBody from "./sale/main/mainBody/MainBody";
 import React from "react";
-import OffCanvasHeader from "./sale/header/OffCanvasHeader";
+import Header from "./sale/header/Header";
 
 function App() {
 
     return (
         <div>
-            <OffCanvasHeader/>
+            <Header/>
             {/*<Carousel/>*/}
 
             <div className="row  flex-nowrap m-0 p-0">

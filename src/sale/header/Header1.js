@@ -1,20 +1,17 @@
-import '../../App.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import React, {useState} from "react";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import SearchBar from "./searchBar/SearchBar";
+import './Header.css'
+
 import Cart from "./cart/Cart";
-import LocationSelectButton from "./location/LocationSelectButton";
+import logo from '../../resource/1.jpg';
 import StateModal from "./location/StateModal";
+import React, {useState} from "react";
 import CityModal from "./location/CityModal";
-import BusinessTypeSelectButton from "./businessType/BusinessTypeSelectButton";
+import LocationSelectButton from "./location/LocationSelectButton";
 import BusinessTypeModal from "./businessType/BusinessTypeModal";
-import ImagesPage from "./logo/ImagesPage";
+import BusinessTypeSelectButton from "./businessType/BusinessTypeSelectButton";
+import SearchBar from "./searchBar/SearchBar";
 
-export default function OffCanvasHeader() {
 
+export default function Header1() {
 
     // Show State modal
 
@@ -165,28 +162,24 @@ export default function OffCanvasHeader() {
 
 
     return (
-        <Navbar expand="lg" className="m-0 p-0 bg-body-tertiary col-12 ">
-            <Container fluid>
-                <Navbar.Brand><Cart number="2"/></Navbar.Brand>
-                <div id="middle" className="d-block d-lg-none me-5">
-                    <ImagesPage/>
-                </div>
-                <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-LG`}/>
-                <Navbar.Offcanvas
-                    id={`offcanvasNavbar-expand-LG`}
-                    aria-labelledby={`offcanvasNavbarLabel-expand-LG`}
-                    placement="end"
-                >
-                    <Offcanvas.Header closeButton>
-                        <Offcanvas.Title id={`offcanvasNavbarLabel-expand-LG`}>
-                            Offcanvas
-                        </Offcanvas.Title>
-                    </Offcanvas.Header>
-                    <Offcanvas.Body>
-                        <Nav className="app-right-to-left justify-content-start flex-grow-1">
-                            <Nav.Link className="m-0 mt-3 mb-2 p-0">
-                                <LocationSelectButton onClick={handleStatesShow}
-                                                      numberOfCities={numberOfCities}/>
+        <div className="rowHeader-style app-right-to-left">
+            <nav className="bg-info col-12 navbar navbar-expand-lg navbar-light">
+                <div className="bg-primary container ">
+                    <div>
+                        <a className="navbar-brand" href="#">
+                            <img className="Header-logo" src={logo} alt="Haraji Home"/>
+                        </a>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div className="bg-danger col-10 collapse navbar-collapse justify-content-end"
+                         id="navbarSupportedContent">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <LocationSelectButton onClick={handleStatesShow} numberOfCities={numberOfCities}/>
                                 <StateModal
                                     selectedCities={selectedCities}
                                     show={statesModalShow}
@@ -203,8 +196,9 @@ export default function OffCanvasHeader() {
                                     onCityRemoved={onCityRemoved}
                                     arr={cities}
                                 />
-                            </Nav.Link>
-                            <Nav.Link className="m-0 mt-2 p-0">
+
+                            </li>
+                            <li className="nav-item">
                                 <BusinessTypeSelectButton onClick={handleBusinessTypeModalShow}
                                                           numberOfBusinessTypes={numberOfBusinessTypes}/>
                                 <BusinessTypeModal
@@ -215,15 +209,27 @@ export default function OffCanvasHeader() {
                                     onBusinessTypeAdded={onBusinessTypeAdded}
                                     onBusinessTypeRemoved={onBusinessTypeRemoved}
                                 />
-                            </Nav.Link>
-                            <Nav.Link  className="m-0 mt-1 p-0"><SearchBar/></Nav.Link>
-                        </Nav>
-                    </Offcanvas.Body>
-                </Navbar.Offcanvas>
-            </Container>
-            <div id="right" className="d-none d-lg-block pe-2">
-                <ImagesPage/>
-            </div>
-        </Navbar>
-    );
+                            </li>
+                            <li className="nav-item">
+                                <SearchBar/>
+                            </li>
+                            <li className="nav-item"><a className="nav-link" href="#">درباره ما</a></li>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a className="dropdown-item" href="#">All Products</a></li>
+                                    <li>
+                                        <hr className="dropdown-divider"/>
+                                    </li>
+                                    <li><a className="dropdown-item" href="#">Popular Items</a></li>
+                                    <li><a className="dropdown-item" href="#">New Arrivals</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <Cart number="2"/>
+                    </div>
+                </div>
+            </nav>
+        </div>);
 }
