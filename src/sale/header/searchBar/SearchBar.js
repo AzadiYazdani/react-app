@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 export default function SearchBar() {
     return (
         <div>
-            <Form className="d-flex app-right-to-left pt-1  font-vazir-15" style={{width: '23rem'}}>
+            <Form className="m-0 p-0 pt-1 d-flex app-right-to-left  font-vazir-15" style={{width: '23rem'}}>
                 <Form.Control  style={{ fontSize: 'inherit'}}
                     type="search"
                     placeholder="جستجوی نام فروشگاه یا کسب و کار"
