@@ -1,12 +1,11 @@
 import '../../App.css';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import SearchBar from "./searchBar/SearchBar";
 
 export default function OffCanvasHeader() {
     return (
@@ -43,15 +42,7 @@ export default function OffCanvasHeader() {
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
-                        <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
+                        <SearchBar/>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
             </Container>

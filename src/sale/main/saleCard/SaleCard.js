@@ -1,11 +1,12 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import React from "react";
+import './SaleCard.css'
 
-export default function NewCard(props) {
+export default function SaleCard(props) {
     return (
         <div className=" m-0 p-0">
-            <Card className="h-100 hover-overlay align-items-lg-center text-center">
+            <Card className="h-100 hover-overlay ripple align-items-lg-center text-center">
                 <Card.Img variant="top" src="https://mdbootstrap.com/img/new/standard/nature/111.webp"/>
                 <Card.Body>
                     <Card.Title><h5 className="fw-bolder">{props.title}</h5></Card.Title>
