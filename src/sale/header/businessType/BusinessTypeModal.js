@@ -22,10 +22,19 @@ export default function BusinessTypeModal(props) {
                                                  onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
                 }) : ""}
             </div>
+
             {Array.isArray(props.businessTypes.response) ? props.businessTypes.response.map((item) => {
+
+                const found = props.selectedBusinessTypes.some(element => {
+                    if (element.id.toString() === item.id.toString()) {
+                        return true;
+                    }
+                });
+
                 return <BusinessTypeButton
                     key={item.id}
                     businessType={item}
+                    value={found}
                     onBusinessTypeAdded ={props.onBusinessTypeAdded }
                     onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
             }) : ""}

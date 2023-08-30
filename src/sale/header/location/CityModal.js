@@ -22,7 +22,8 @@ export default function CityModal(props) {
                         return true;
                     }
                 });
-                return <CityButton key={item.id} city={item}
+                return <CityButton key={item.id}
+                                   city={item}
                                    value={found}
                                    onCityAdded={props.onCityAdded}
                                    onCityRemoved={props.onCityRemoved}/>

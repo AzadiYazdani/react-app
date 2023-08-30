@@ -192,6 +192,7 @@ function App() {
                     onCityRemoved={onCityRemoved}
 
                     businessTypes={businessTypes}
+                    selectedBusinessTypes={selectedBusinessTypes }
                     numberOfBusinessTypes={numberOfBusinessTypes}
                     businessTypeModalShow={businessTypeModalShow}
                     handleBusinessTypeModalShow={handleBusinessTypeModalShow}
