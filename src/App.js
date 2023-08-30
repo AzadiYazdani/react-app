@@ -56,9 +56,10 @@ function App() {
             return obj.id === id;
         });
         if (!found) {
-            setSelectedCities([...selectedCities, city]);
+            selectedCities.push(city);
+            setSelectedCities([...selectedCities]);
+            updateNumberOfCities();
         }
-        updateNumberOfCities();
     }
 
     const onCityRemoved = (checkedId, title) => {
@@ -68,9 +69,9 @@ function App() {
         if (index >= -1) {
             //Removing values from array
             selectedCities.splice(index, 1);
+            setSelectedCities([...selectedCities]);
+            updateNumberOfCities();
         }
-        setSelectedCities([...selectedCities]);
-        updateNumberOfCities();
     }
 
     const updateNumberOfCities = () => {
@@ -90,6 +91,7 @@ function App() {
     }
 
     const submitCities = () => {
+        console.log("submitCities" );
         updateNumberOfCities();
         handleStatesClose();
     }
@@ -132,9 +134,10 @@ function App() {
             return obj.id === id;
         });
         if (!found) {
-            setSelectedBusinessTypes([...selectedBusinessTypes, businessType]);
+            selectedBusinessTypes.push(businessType);
+            setSelectedBusinessTypes([...selectedBusinessTypes]);
+            updateNumberOfBusinessTypes();
         }
-        updateNumberOfBusinessTypes();
     }
 
     const onBusinessTypeRemoved = (checkedId, title) => {
@@ -149,14 +152,18 @@ function App() {
     }
 
     const updateNumberOfBusinessTypes = () => {
+
         if (selectedBusinessTypes.length === 1) {
-            let city = selectedBusinessTypes[0];
-            setNumberOfBusinessTypes(city.title);
+            console.log(" Hey 1" );
+            let businessType = selectedBusinessTypes[0];
+            setNumberOfBusinessTypes(businessType.title);
         } else if (selectedBusinessTypes.length === 2) {
+            console.log(" Hey 2" );
             let businessType1 = selectedBusinessTypes[0];
             let businessType2 = selectedBusinessTypes[1];
             setNumberOfBusinessTypes(businessType1.title + ', ' + businessType2.title);
         } else if (selectedBusinessTypes.length > 2) {
+            console.log(" Hey 3" );
             let businessType1 = selectedBusinessTypes[0];
             let businessType2 = selectedBusinessTypes[1];
             setNumberOfBusinessTypes(businessType1.title + ', ' + businessType2.title + '...');
