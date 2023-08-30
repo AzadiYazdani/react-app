@@ -13,7 +13,7 @@ import BusinessTypeSelectButton from "./businessType/BusinessTypeSelectButton";
 import BusinessTypeModal from "./businessType/BusinessTypeModal";
 import ImagesPage from "./logo/ImagesPage";
 
-export default function Header() {
+export default function Header(props) {
 
     //
     // // Show State modal
@@ -162,7 +162,6 @@ export default function Header() {
     //     updateNumberOfBusinessTypes();
     //     handleBusinessTypeModalClose();
     // }
-    //
 
     return (
         <Navbar expand="lg" className="m-0 p-0 bg-body-tertiary col-12 ">
@@ -185,38 +184,39 @@ export default function Header() {
                     <Offcanvas.Body>
                         <Nav className="app-right-to-left justify-content-start flex-grow-1">
                             <Nav.Link className="m-0 mt-3 mb-2 p-0">
-                                <LocationSelectButton onClick={handleStatesShow}
-                                                      numberOfCities={numberOfCities}/>
+                                <LocationSelectButton onClick={props.handleStatesShow}
+                                                      numberOfCities={props.numberOfCities}/>
                                 <StateModal
-                                    selectedCities={selectedCities}
-                                    show={statesModalShow}
-                                    onHide={handleStatesClose}
-                                    onCityRemoved={onCityRemoved}
-                                    onStateClick={handleCitiesShow}
+                                    selectedCities={props.selectedCities}
+                                    show={props.statesModalShow}
+                                    onHide={props.onStatesClose}
+                                    onCityRemoved={props.onCityRemoved}
+                                    onStateClick={props.onStateClick}
                                 />
                                 <CityModal
-                                    selectedCities={selectedCities}
-                                    show={citiesModalShow}
-                                    onHide={handleCitiesClose}
-                                    onSubmit={submitCities}
-                                    onCityAdded={onCityAdded}
-                                    onCityRemoved={onCityRemoved}
-                                    arr={cities}
+                                    selectedCities={props.selectedCities}
+                                    show={props.citiesModalShow}
+                                    onHide={props.handleCitiesClose}
+                                    onSubmit={props.submitCities}
+                                    onCityAdded={props.onCityAdded}
+                                    onCityRemoved={props.onCityRemoved}
+                                    cities={props.cities}
                                 />
                             </Nav.Link>
                             <Nav.Link className="m-0 mt-2 p-0">
-                                <BusinessTypeSelectButton onClick={handleBusinessTypeModalShow}
-                                                          numberOfBusinessTypes={numberOfBusinessTypes}/>
+                                <BusinessTypeSelectButton onClick={props.handleBusinessTypeModalShow}
+                                                          numberOfBusinessTypes={props.numberOfBusinessTypes}/>
                                 <BusinessTypeModal
-                                    selectedBusinessTypes={selectedBusinessTypes}
-                                    show={businessTypeModalShow}
-                                    onHide={handleBusinessTypeModalClose}
-                                    onSubmit={submitBusinessTypes}
-                                    onBusinessTypeAdded={onBusinessTypeAdded}
-                                    onBusinessTypeRemoved={onBusinessTypeRemoved}
+                                    businessTypes={props.businessTypes}
+                                    selectedBusinessTypes={props.selectedBusinessTypes}
+                                    show={props.businessTypeModalShow}
+                                    onHide={props.handleBusinessTypeModalClose}
+                                    onSubmit={props.submitBusinessTypes}
+                                    onBusinessTypeAdded={props.onBusinessTypeAdded}
+                                    onBusinessTypeRemoved={props.onBusinessTypeRemoved}
                                 />
                             </Nav.Link>
-                            <Nav.Link  className="m-0 mt-1 p-0"><SearchBar/></Nav.Link>
+                            <Nav.Link className="m-0 mt-1 p-0"><SearchBar/></Nav.Link>
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>

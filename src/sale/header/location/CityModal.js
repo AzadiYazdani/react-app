@@ -4,7 +4,6 @@ import CityButton from "./CityButton";
 
 export default function CityModal(props) {
 
-
     return (<Modal className="app-right-to-left"
                    {...props}
                    size="modal-sm"
@@ -16,7 +15,7 @@ export default function CityModal(props) {
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            {Array.isArray(props.arr.response) ? props.arr.response.map((item) => {
+            {Array.isArray(props.cities.response) ? props.cities.response.map((item) => {
 
                 const found = props.selectedCities.some(element => {
                     if (element.id.toString() === item.id.toString()) {

@@ -1,23 +1,9 @@
 import {Button, Modal} from 'react-bootstrap';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import BusinessTypeButton from "./BusinessTypeButton";
 import BusinessTypeSelected from "./BusinessTypeSelected";
 
 export default function BusinessTypeModal(props) {
-
-    const [businessTypes, setBusinessTypes] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:8081/businesstype/all')
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                setBusinessTypes(data);
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
-    }, []);
 
     return (<Modal className="app-right-to-left"
                    {...props}
@@ -36,7 +22,7 @@ export default function BusinessTypeModal(props) {
                                                  onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
                 }) : ""}
             </div>
-            {Array.isArray(businessTypes.response) ? businessTypes.response.map((item) => {
+            {Array.isArray(props.businessTypes.response) ? props.businessTypes.response.map((item) => {
                 return <BusinessTypeButton
                     key={item.id}
                     businessType={item}
