@@ -18,8 +18,11 @@ export default function BusinessTypeModal(props) {
         <Modal.Body>
             <div>
                 {Array.isArray(props.selectedBusinessTypes) ? props.selectedBusinessTypes.map((item) => {
-                    return <BusinessTypeSelected key={item.id} businessType={item}
-                                                 onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
+                    return <BusinessTypeSelected
+                        key={item.id}
+                        businessType={item}
+                        onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
+
                 }) : ""}
             </div>
 
@@ -35,7 +38,7 @@ export default function BusinessTypeModal(props) {
                     key={item.id}
                     businessType={item}
                     value={found}
-                    onBusinessTypeAdded ={props.onBusinessTypeAdded }
+                    onBusinessTypeAdded={props.onBusinessTypeAdded }
                     onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
             }) : ""}
         </Modal.Body>

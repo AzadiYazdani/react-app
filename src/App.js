@@ -52,7 +52,6 @@ function App() {
 
     const onCityAdded = (id, title) => {
         let city = {"id": id, "title": title};
-        console.log("azadi " + id + ", title " + title);
         const found = selectedCities.find(obj => {
             return obj.id === id;
         });
@@ -212,7 +211,17 @@ function App() {
                            onCityRemoved={onCityRemoved}
                            numberOfCities={numberOfCities}
                            onStateClick={handleCitiesShow}
-                           businessTypes={businessTypes}/>
+
+                           businessTypes={businessTypes}
+                           selectedBusinessTypes={selectedBusinessTypes }
+                           numberOfBusinessTypes={numberOfBusinessTypes}
+                           businessTypeModalShow={businessTypeModalShow}
+                           handleBusinessTypeModalShow={handleBusinessTypeModalShow}
+                           handleBusinessTypeModalClose={handleBusinessTypeModalClose}
+                           submitBusinessTypes={submitBusinessTypes}
+                           onBusinessTypeAdded={onBusinessTypeAdded}
+                           onBusinessTypeRemoved={onBusinessTypeRemoved}
+                />
             </div>
             {/*<Footer/>*/}
         </div>);

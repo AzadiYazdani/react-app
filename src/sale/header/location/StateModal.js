@@ -47,7 +47,6 @@ export default function StateModal(props) {
         fetch('http://localhost:8081/location/states/all')
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 setStates(data);
             })
             .catch((err) => {

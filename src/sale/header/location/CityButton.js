@@ -3,7 +3,6 @@ import React, {ChangeEvent} from "react";
 
 export default function CityButton(props)  {
 
-
     const onChanged = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked) {
             props.onCityAdded(event.target.value, event.target.name);
