@@ -207,10 +207,10 @@ function App() {
                     onBusinessTypeAdded={onBusinessTypeAdded}
                     onBusinessTypeRemoved={onBusinessTypeRemoved}
             />
-            {/*<Carousel/>*/}
+
 
             <div className="row flex-nowrap m-0 p-0">
-                <MainBody/>
+               <MainBody/>
                 <RightPane selectedCities={selectedCities}
                            statesModalShow={statesModalShow}
                            onHide={handleStatesClose}
