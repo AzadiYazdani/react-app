@@ -1,0 +1,45 @@
+@import url("./../fonts/vazirmatn/misc/Farsi-Digits/Vazirmatn-FD-font-face.css");
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+
+.font-vazirmatn-9{
+    font-family: "Vazirmatn FD";
+    font-size: 9px;
+}
+
+.font-Vazirmatn-10{
+    font-family: "Vazirmatn FD";
+    font-size: 10px;
+}
+
+
+.font-Vazirmatn-12{
+    font-family: "Vazirmatn FD";
+    font-size: 12px;
+}
+
+.font-Vazirmatn-13{
+    font-family: "Vazirmatn FD";
+    font-size: 13px;
+}
+
+.font-Vazirmatn-14{
+    font-family: "Vazirmatn FD";
+    font-size: 14px;
+}
+
+.font-Vazirmatn-15{
+    font-family: "Vazirmatn FD";
+    font-size: 15px;
+}
+.font-Vazirmatn-16{
+    font-family: "Vazirmatn FD";
+    font-size: 16px;
+}
+
+
+.sample_farsi_digits {
+    font-feature-settings: "ss01";
+}
+
+

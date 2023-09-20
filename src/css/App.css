@@ -1,7 +1,5 @@
 @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css');
-
-@import url('fontiran.css');
-
+@import url('fontPersian.css');
 
 
 .App {
@@ -40,18 +38,58 @@
     }
 }
 
-.app-right-to-left{
+.app-right-to-left {
     direction: rtl;
 }
 
-.app-left-to-right{
+.app-left-to-right {
     direction: ltr;
 }
 
 .hr-divider {
-    background-color: rgba(0,0,0,.45);
+    background-color: rgba(0, 0, 0, .45);
     border: none;
     box-sizing: border-box;
     height: 1px;
     margin: 0;
+}
+
+
+.card:hover {
+    z-index: 1;
+    transform: scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+.btn:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+.important {
+    color: red;
+}
+
+.text-key{
+    font-family: "Vazirmatn FD";
+    font-size: 12px;
+    color: gray;
+}
+
+
+.text-value-gray{
+    font-family: "Vazirmatn FD";
+    font-size: 12px;
+    color: gray;
+}
+
+.text-value-normal{
+    font-family: "Vazirmatn FD";
+    font-size: 12px;
+}
+
+.text-value-bold{
+    font-family: "Vazirmatn FD";
+    font-size: 12px;
+    font-weight: bold;
 }
