@@ -7,10 +7,11 @@ import './SaleCard.css'
 export default function SaleCard(props) {
     return (
         <div className=" m-0 p-0">
-            <Card className=" m-0 p-0 mb-3 mt-2 h-100 hover-overlay ripple align-items-lg-center text-center">
+            <Card className=" m-0 p-0 mb-3 mt-2 h-100 hover-overlay ripple align-items-lg-center text-center font-vazir-14">
                 <Card.Img variant="top" src="https://mdbootstrap.com/img/new/standard/nature/111.webp"/>
                 <Card.Body className=" m-0 mt-2 p-0 app-right-to-left">
-                    <Card.Title className="fw-bolder title-font"><b >{props.title}</b></Card.Title>
+                    <Card.Title className="fw-bolder title-font me-4"><b >{props.title}</b><span
+                        className="badge bg-danger me-2 rounded-5 rounded">{props.highPercent}</span></Card.Title>
 
                     <Card.Text className="font-vazirmatn-10">
 
