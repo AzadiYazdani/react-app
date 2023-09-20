@@ -1,9 +1,36 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 
 export default function SaleCard(props) {
+
+    const [leftDaysMessage, setLeftDaysMessage] = useState("هنوز وقت داری!");
+
+    useEffect(() => {
+        if (props.status === '0') {
+            setLeftDaysMessage(props.daysToStart + ' روز مونده به آغاز حراجی!' );
+        } else if (props.status === '1') {
+            setLeftDaysMessage( props.daysToEnd + ' روز وقت داری!');
+        } else if (props.status === '2') {
+            setLeftDaysMessage(props.daysToEnd + ' روز وقت داری!');
+        }
+    });
+
+
+    // const onCityAdded = (id, title) => {
+    //     let city = {"id": id, "title": title};
+    //     const found = selectedCities.find(obj => {
+    //         return obj.id === id;
+    //     });
+    //     if (!found) {
+    //         selectedCities.push(city);
+    //         setSelectedCities([...selectedCities]);
+    //         updateNumberOfCities();
+    //     }
+    // }
+
+
     return (
         <div className=" m-0 p-0 sample_farsi_digits font-Vazirmatn-15">
             <Card className=" m-0 p-0 mb-3 mt-2 h-100 hover-overlay ripple align-items-lg-center text-center ">
@@ -13,7 +40,7 @@ export default function SaleCard(props) {
                         className="badge bg-danger me-2 rounded-5 rounded ">{props.highPercent}</span></Card.Title>
                     <Card.Text >
                         <p >{props.type}</p>
-                        <p> <span  className="text-key"> مکان: </span><b>{props.city}، {props.place}</b></p>
+                        <p> <b><i className='bi bi-geo-alt'/>{props.city}، {props.place}</b></p>
                         <span  className="text-key"> محدوده قیمت:</span>
                          <span className="text-value-bold"> {props.lowPrice} -  {props.highPrice}</span>
                         <br/>
@@ -24,13 +51,15 @@ export default function SaleCard(props) {
                         <span  className="text-key">آغاز حراج:</span>
                          <b> {props.saleStart} </b>
                         <br/>
-                        به مدت <b> {props.saleLenght}روز </b>
                         <br/>
+
+                        <p>{leftDaysMessage}</p>
+                        {/*{props.daysToEnd} روز وقت داری!*/}
 
                         {/*<span className="text-muted text-decoration-line-through">${props.oldPrice}</span>*/}
                         {/*${props.newPrice}*/}
                     </Card.Text>
-                    <Button variant="primary">افزودن به علاقمندی ها</Button>
+                    <Button variant="primary">یادم بمونه!</Button>
                 </Card.Body>
             </Card>
         </div>
