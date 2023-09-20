@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RightPane from "./sale/main/rightPane/RightPane";
 import MainBody from "./sale/main/mainBody/MainBody";

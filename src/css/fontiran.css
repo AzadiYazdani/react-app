@@ -1,5 +1,5 @@
-/* این فایل وظیفه تعریف و بارگذاری فونت های «فونت ایران» را برعهده دارد */
-/* پیشنهاد می شود از روش قبل استفاده کنید */
+@import url("./../fonts/vazirmatn/misc/Farsi-Digits/Vazirmatn-FD-font-face.css");
+
 
 @font-face {
     font-family: IRANSans;
@@ -12,10 +12,31 @@
 }
 
 @font-face {
-    font-family: vazir;
+    font-family: Vazir;
     src: url("../../src/fonts/Vazir.ttf");
+
+    font-weight: normal;
+
+    font-style: normal;
+
 }
 
+
+@font-face {
+    font-family: 'Vazirmatn RD';
+    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Round-Dots/fonts/webfonts/Vazirmatn-RD[wght].woff2') format('woff2 supports variations'),
+    url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Round-Dots/fonts/webfonts/Vazirmatn-RD[wght].woff2') format('woff2-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+.font-vazirmatn-10{
+    font-family: "Vazirmatn FD";
+    font-size: 15px;
+}
 
 .font-vazir-10{
     font-family: "vazir";
@@ -78,6 +99,10 @@
 .font-iran-Sans-16{
     font-family: "IRANSans";
     font-size: 16px;
+}
+
+.sample_farsi_digits {
+    font-feature-settings: "ss01";
 }
 
 

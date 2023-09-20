@@ -1,5 +1,6 @@
 @import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css');
 
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 @import url("../../../css/fontiran.css");
 
 
@@ -19,7 +20,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow-wrap: normal;
-    font-family: Vazir;
+    font-family: Vazirmatn-ExtraBold;
     font-weight: 700;
     font-size: 18px;
     /*font-size: 1.125rem;*/

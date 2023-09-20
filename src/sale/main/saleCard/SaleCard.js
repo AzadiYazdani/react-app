@@ -12,12 +12,12 @@ export default function SaleCard(props) {
                 <Card.Body className=" m-0 mt-2 p-0 app-right-to-left">
                     <Card.Title className="fw-bolder title-font"><b >{props.title}</b></Card.Title>
 
-                    <Card.Text className=" font-vazir-12">
+                    <Card.Text className="font-vazirmatn-10">
 
-                        <p className="font-vazir-14">{props.type}</p>
+                        <p >{props.type}</p>
                         <p>مکان: <b>{props.city}، {props.place}</b></p>
-                        محدوده قیمت:  از <b><span className="font-vazir-14" style={{ color: 'red' }}> {props.lowPrice}</span></b> - تا {props.highPrice}
-                        <p>درصد تخفیف:  از {props.lowPercent} - تا <b><span className="font-vazir-14" style={{ color: 'red' }}> {props.highPercent}</span></b></p>
+                        محدوده قیمت:  از <b><span  style={{ color: 'red' }}> {props.lowPrice}</span></b> - تا {props.highPrice}
+                        <p>درصد تخفیف:  از {props.lowPercent} - تا <b><span className="sample_farsi_digits" style={{ color: 'red' }}> {props.highPercent}</span></b></p>
                         آغاز حراج: <b> {props.saleStart} </b>
                         <br/>
                         به مدت <b> {props.saleLenght}روز </b>
