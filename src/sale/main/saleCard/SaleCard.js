@@ -43,7 +43,7 @@ export default function SaleCard(props) {
                         <span className="important "> {props.newPrice}</span>
                         <span className="important "> تومان</span>
 
-                        <p ><i className="bi bi-clock">{leftDaysMessage}</i></p>
+                        <p ><i className="bi bi-clock"/>{leftDaysMessage}</p>
 
                     </Card.Text>
                     <Button variant="danger">یادم بمونه!</Button>
