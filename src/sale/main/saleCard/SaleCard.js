@@ -8,27 +8,15 @@ export default function SaleCard(props) {
     const [leftDaysMessage, setLeftDaysMessage] = useState("هنوز وقت داری!");
 
     useEffect(() => {
-        if (props.status === '0') {
+        if (props.status === '0') {  //آغاز نشده
             setLeftDaysMessage(props.daysToStart + ' روز مونده به آغاز حراجی!' );
-        } else if (props.status === '1') {
-            setLeftDaysMessage( props.daysToEnd + ' روز وقت داری!');
-        } else if (props.status === '2') {
-            setLeftDaysMessage(props.daysToEnd + ' روز وقت داری!');
+        } else if (props.status === '1') {  // آغاز شده
+            setLeftDaysMessage( props.daysToEnd + ' روز دیگه وقت داری!');
+        } else if (props.status === '2') {  // پایان یافته
+            setLeftDaysMessage(props.daysToEnd + ' روزه تمام شده');
+
         }
     });
-
-
-    // const onCityAdded = (id, title) => {
-    //     let city = {"id": id, "title": title};
-    //     const found = selectedCities.find(obj => {
-    //         return obj.id === id;
-    //     });
-    //     if (!found) {
-    //         selectedCities.push(city);
-    //         setSelectedCities([...selectedCities]);
-    //         updateNumberOfCities();
-    //     }
-    // }
 
 
     return (
@@ -39,27 +27,26 @@ export default function SaleCard(props) {
                     <Card.Title className="fw-bolder me-4"><b >{props.title}</b><span
                         className="badge bg-danger me-2 rounded-5 rounded ">{props.highPercent}</span></Card.Title>
                     <Card.Text >
-                        <p >{props.type}</p>
-                        <p> <b><i className='bi bi-geo-alt'/>{props.city}، {props.place}</b></p>
+                        <p>{props.type}</p>
+                        <p><b><i className='bi bi-geo-alt'/>{props.city}، {props.place}</b></p>
                         <span  className="text-key"> محدوده قیمت:</span>
-                         <span className="text-value-bold"> {props.lowPrice} -  {props.highPrice}</span>
+                         <span className="text-value-normal-14"> {props.lowPrice} -  {props.highPrice}</span>
                         <br/>
                         <span  className="text-key">درصد تخفیف: </span>
-                        <span  className="text-value-normal">{props.lowPercent} - تا </span>
-                        <span className="text-value-normal"> {props.highPercent}</span>
+                        <span  className="text-value-normal-14">{props.lowPercent} تا </span>
+                        <span className="text-value-normal-14"> {props.highPercent}</span>
                         <br/>
-                        <span  className="text-key">آغاز حراج:</span>
-                         <b> {props.saleStart} </b>
+                        {/*<span  className="text-key">آغاز حراج:</span>*/}
+                        {/* /!*<b> {props.} </b>*!/*/}
                         <br/>
-                        <br/>
+                        <span className="text-muted text-value-normal-12 text-decoration-line-through ">{props.oldPrice}</span>
+                        <span className="important "> {props.newPrice}</span>
+                        <span className="important "> تومان</span>
 
-                        <p>{leftDaysMessage}</p>
-                        {/*{props.daysToEnd} روز وقت داری!*/}
+                        <p ><i className="bi bi-clock">{leftDaysMessage}</i></p>
 
-                        {/*<span className="text-muted text-decoration-line-through">${props.oldPrice}</span>*/}
-                        {/*${props.newPrice}*/}
                     </Card.Text>
-                    <Button variant="primary">یادم بمونه!</Button>
+                    <Button variant="danger">یادم بمونه!</Button>
                 </Card.Body>
             </Card>
         </div>

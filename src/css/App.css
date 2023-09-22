@@ -67,7 +67,10 @@
 }
 
 .important {
-    color: red;
+    color: darkred;
+    font-family: "Vazirmatn FD";
+    font-size: 18px;
+    /*font-weight: bold;*/
 }
 
 .text-key{
@@ -83,9 +86,14 @@
     color: gray;
 }
 
-.text-value-normal{
+.text-value-normal-12{
     font-family: "Vazirmatn FD";
     font-size: 12px;
+}
+
+.text-value-normal-14{
+    font-family: "Vazirmatn FD";
+    font-size: 14px;
 }
 
 .text-value-bold{
