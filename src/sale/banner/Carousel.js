@@ -17,7 +17,7 @@ export default function Carousel() {
             <MDBCarouselItem
                 className='w-100 d-block'
                 itemId={2}
-                src='https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg'
+                src="require(@/resource/banner/img(15).jpg)"
                 alt='...'
             >
                 <h5>Second slide label</h5>

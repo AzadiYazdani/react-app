@@ -4,6 +4,8 @@ import RightPane from "./sale/main/rightPane/RightPane";
 import MainBody from "./sale/main/mainBody/MainBody";
 import React, {useEffect, useState} from "react";
 import Header from "./sale/header/Header";
+import Carousel from "./sale/banner/Carousel";
+import Footer from "./sale/footer/Footer";
 
 function App() {
 
@@ -207,7 +209,7 @@ function App() {
                     onBusinessTypeAdded={onBusinessTypeAdded}
                     onBusinessTypeRemoved={onBusinessTypeRemoved}
             />
-
+{/*<Carousel/>*/}
 
             <div className="row flex-nowrap m-0 p-0">
                <MainBody/>
@@ -230,7 +232,7 @@ function App() {
                            onBusinessTypeRemoved={onBusinessTypeRemoved}
                 />
             </div>
-            {/*<Footer/>*/}
+            <Footer/>
         </div>);
 }
 

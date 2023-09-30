@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './test/8-UseState-addProduct/components/app/App';
-import App from './App'
+import App from './App1'
 
 import reportWebVitals from './reportWebVitals';
 
