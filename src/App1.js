@@ -7,6 +7,7 @@ import Header from "./sale/header/Header";
 import Carousel from "./sale/banner/Carousel";
 import Footer from "./sale/footer/Footer";
 
+
 function App() {
 
 
@@ -181,7 +182,9 @@ function App() {
 
 
     return (
+
         <div>
+
             <Header handleStatesShow={handleStatesShow}
                     statesModalShow={statesModalShow}
                     onHide={handleStatesClose}
