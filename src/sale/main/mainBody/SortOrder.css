@@ -1,0 +1,98 @@
+.sort-order {
+    width: fit-content;
+    max-width: 100%;
+    min-height: 36px;
+
+    display: flex;
+    align-items: center;
+    direction: rtl;
+
+    margin: 2px 0 3px auto;
+    padding: 2px 0;
+
+    background: #fff;
+
+    font-family: "Vazirmatn FD", sans-serif;
+}
+
+/* عنوان */
+.sort-order-title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    margin-left: 12px;
+
+    color: #555;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.sort-order-title i {
+    font-size: 15px;
+}
+
+/* گزینه‌ها */
+.sort-order-options {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    overflow-x: auto;
+}
+
+/* دکمه‌ها */
+.sort-option {
+    border: none;
+    background: transparent;
+
+    padding: 5px 9px;
+
+    border-radius: 7px;
+
+    color: #666;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    line-height: 1.2;
+    white-space: nowrap;
+
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.sort-option:hover {
+    background: #f7f7f7;
+    color: #333;
+}
+
+.sort-option.active {
+    color: #d73948;
+    font-weight: 700;
+    background: #fff1f2;
+}
+
+/* موبایل */
+@media (max-width: 768px) {
+
+    .sort-order {
+        min-height: 34px;
+        padding: 2px 0;
+        gap: 4px;
+    }
+
+    .sort-order-title {
+        margin-left: 5px;
+        font-size: 11px;
+    }
+
+    .sort-order-options {
+        width: 100%;
+    }
+
+    .sort-option {
+        font-size: 11px;
+        padding: 5px 7px;
+    }
+}

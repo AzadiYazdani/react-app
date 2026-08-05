@@ -7,8 +7,8 @@ export default function CitySelected(props) {
     };
 
     return (
-        <div className="tag_list" id={props.city.id} title= {props.city.title} data-id={props.city.id} onClick={removeToCollection}>
-            {props.city.title}
+        <div className="tag_list" id={props.city.id} title= {props.city.name} data-id={props.city.id} onClick={removeToCollection}>
+            {props.city.name}
             <span className="close">&times;</span>
         </div>
     );

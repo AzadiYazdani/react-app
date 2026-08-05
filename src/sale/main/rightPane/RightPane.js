@@ -1,26 +1,35 @@
 import BusinessTypeButton from "../../header/businessType/BusinessTypeButton";
 import React from "react";
 
-export default function RightPane(props) {
+export default function RightPane({ businessType }) {
 
     return (
-    <div className="m-0 p-0 col-md-2 hiding d-none d-md-block rounded-2 bg-danger justify-content-start "  >
-            {Array.isArray(props.businessTypes.response) ? props.businessTypes.response.map((item) => {
+        <div className="m-0 p-0 col-2 rounded-2 bg-danger">
 
-                const found = props.selectedBusinessTypes.some(element => {
-                    if (element.id.toString() === item.id.toString()) {
-                        return true;
-                    }
-                });
+            {Array.isArray(businessType.businessTypes.response)
+                ? businessType.businessTypes.response.map(item => {
 
-                return <BusinessTypeButton
-                    key={item.id}
-                    businessType={item}
-                    value={found}
-                    onBusinessTypeAdded ={props.onBusinessTypeAdded }
-                    onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
-            }) : ""}
+                    const found = businessType.selectedBusinessTypes.some(
+                        element =>
+                            element.id.toString() === item.id.toString()
+                    );
+
+                    return (
+                        <BusinessTypeButton
+                            key={item.id}
+                            businessType={item}
+                            value={found}
+                            onBusinessTypeAdded={
+                                businessType.onBusinessTypeAdded
+                            }
+                            onBusinessTypeRemoved={
+                                businessType.onBusinessTypeRemoved
+                            }
+                        />
+                    );
+                })
+                : null}
+
         </div>
-    )
-
+    );
 }

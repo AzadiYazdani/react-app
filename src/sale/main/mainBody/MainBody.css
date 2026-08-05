@@ -1,0 +1,45 @@
+.main-body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.sale-cards-row {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    column-gap: 8px;
+    row-gap: 8px;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.sale-cards-row > * {
+    margin-top: 0 !important;
+}
+
+/* تبلت */
+@media (max-width: 991px) {
+    .sale-cards-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* موبایل */
+@media (max-width: 767px) {
+    .sale-cards-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 6px;
+        row-gap: 6px;
+    }
+}
+
+/* موبایل خیلی کوچک */
+@media (max-width: 575px) {
+    .sale-cards-row {
+        grid-template-columns: 1fr;
+    }
+}

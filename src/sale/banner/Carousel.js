@@ -1,38 +1,68 @@
-import React from 'react';
-import {MDBCarousel, MDBCarouselItem,} from 'mdb-react-ui-kit';
+import React from "react";
+import { Carousel as BootstrapCarousel } from "react-bootstrap";
+import "./Carousel.css";
 
 export default function Carousel() {
+
     return (
-        <MDBCarousel showIndicators showControls fade className=" m-0 p-0">
-            <MDBCarouselItem
-                className='w-100 d-block'
-                itemId={1}
-                src='https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg'
-                alt='...'
-            >
-                <h5>First slide label</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </MDBCarouselItem>
+        <div className="sale-carousel">
 
-            <MDBCarouselItem
-                className='w-100 d-block'
-                itemId={2}
-                src="require(@/resource/banner/img(15).jpg)"
-                alt='...'
+            <BootstrapCarousel
+                indicators={true}
+                controls={true}
+                fade={true}
+                interval={4000}
             >
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </MDBCarouselItem>
 
-            <MDBCarouselItem
-                className='w-100 d-block'
-                itemId={3}
-                src='https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg'
-                alt='...'
-            >
-                <h5>Third slide label</h5>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-            </MDBCarouselItem>
-        </MDBCarousel>
+                <BootstrapCarousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
+                        alt="بنر اول"
+                    />
+
+                    <BootstrapCarousel.Caption>
+                        <h5>عنوان بنر اول</h5>
+                        <p>
+                            توضیح کوتاه برای بنر اول
+                        </p>
+                    </BootstrapCarousel.Caption>
+                </BootstrapCarousel.Item>
+
+
+                <BootstrapCarousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
+                        alt="بنر دوم"
+                    />
+
+                    <BootstrapCarousel.Caption>
+                        <h5>عنوان بنر دوم</h5>
+                        <p>
+                            توضیح کوتاه برای بنر دوم
+                        </p>
+                    </BootstrapCarousel.Caption>
+                </BootstrapCarousel.Item>
+
+
+                <BootstrapCarousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
+                        alt="بنر سوم"
+                    />
+
+                    <BootstrapCarousel.Caption>
+                        <h5>عنوان بنر سوم</h5>
+                        <p>
+                            توضیح کوتاه برای بنر سوم
+                        </p>
+                    </BootstrapCarousel.Caption>
+                </BootstrapCarousel.Item>
+
+            </BootstrapCarousel>
+
+        </div>
     );
 }

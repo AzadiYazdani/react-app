@@ -1,81 +1,145 @@
-import '../../css/App.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import "../../css/App.css";
 import React from "react";
-import Offcanvas from "react-bootstrap/Offcanvas";
+
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+
 import SearchBar from "./searchBar/SearchBar";
 import Cart from "./cart/Cart";
+
 import LocationSelectButton from "./location/LocationSelectButton";
-import StateModal from "./location/StateModal";
+import ProvinceModal from "./location/ProvinceModal";
 import CityModal from "./location/CityModal";
+
 import BusinessTypeSelectButton from "./businessType/BusinessTypeSelectButton";
 import BusinessTypeModal from "./businessType/BusinessTypeModal";
+
 import ImagesPage from "./logo/ImagesPage";
 
-export default function Header(props) {
+
+export default function Header({
+    city,
+    locationModal,
+    businessType,
+    businessTypeModal
+}) {
 
     return (
-        <Navbar expand="lg" className="m-0 p-0 bg-body-tertiary col-12 ">
-            <Container fluid>
-                <Navbar.Brand><Cart number="2"/></Navbar.Brand>
-                <div id="middle" className="d-block d-lg-none me-5">
-                    <ImagesPage/>
+        <header className="site-header">
+
+            {/* ردیف اول */}
+            <Container fluid className="header-top">
+
+                {/* لوگو */}
+                <div className="header-logo-wrapper">
+                    <ImagesPage />
                 </div>
-                <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-LG`}/>
-                <Navbar.Offcanvas
-                    id={`offcanvasNavbar-expand-LG`}
-                    aria-labelledby={`offcanvasNavbarLabel-expand-LG`}
-                    placement="end"
-                >
-                    <Offcanvas.Header closeButton>
-                        <Offcanvas.Title id={`offcanvasNavbarLabel-expand-LG`}>
-                            Offcanvas
-                        </Offcanvas.Title>
-                    </Offcanvas.Header>
-                    <Offcanvas.Body>
-                        <Nav className="app-right-to-left justify-content-start flex-grow-1">
-                            <Nav.Link className="m-0 mt-3 mb-2 p-0">
-                                <LocationSelectButton onClick={props.handleStatesShow}
-                                                      numberOfCities={props.numberOfCities}/>
-                                <StateModal
-                                    selectedCities={props.selectedCities}
-                                    show={props.statesModalShow}
-                                    onHide={props.onStatesClose}
-                                    onCityRemoved={props.onCityRemoved}
-                                    onStateClick={props.onStateClick}
-                                />
-                                <CityModal
-                                    selectedCities={props.selectedCities}
-                                    show={props.citiesModalShow}
-                                    onHide={props.handleCitiesClose}
-                                    onSubmit={props.submitCities}
-                                    onCityAdded={props.onCityAdded}
-                                    onCityRemoved={props.onCityRemoved}
-                                    cities={props.cities}
-                                />
-                            </Nav.Link>
-                            <Nav.Link className="m-0 mt-2 p-0">
-                                <BusinessTypeSelectButton onClick={props.handleBusinessTypeModalShow}
-                                                          numberOfBusinessTypes={props.numberOfBusinessTypes}/>
-                                <BusinessTypeModal
-                                    businessTypes={props.businessTypes}
-                                    selectedBusinessTypes={props.selectedBusinessTypes}
-                                    show={props.businessTypeModalShow}
-                                    onHide={props.handleBusinessTypeModalClose}
-                                    onSubmit={props.submitBusinessTypes}
-                                    onBusinessTypeAdded={props.onBusinessTypeAdded}
-                                    onBusinessTypeRemoved={props.onBusinessTypeRemoved}
-                                />
-                            </Nav.Link>
-                            <Nav.Link className="m-0 mt-1 p-0"><SearchBar/></Nav.Link>
-                        </Nav>
-                    </Offcanvas.Body>
-                </Navbar.Offcanvas>
+
+
+                {/* جستجو */}
+                <div className="header-search-wrapper">
+                    <SearchBar />
+                </div>
+
+
+                {/* امکانات سمت چپ */}
+                <div className="header-actions">
+
+                    <button className="header-action-button">
+                        <i className="bi bi-person"></i>
+                        <span>ورود / ثبت‌نام</span>
+                    </button>
+
+                    <div className="header-divider"></div>
+
+                    <button className="header-cart-button">
+                        <Cart number="2"/>
+                    </button>
+
+                </div>
+
             </Container>
-            <div id="right" className="d-none d-lg-block pe-2">
-                <ImagesPage/>
+
+
+            {/* ردیف دوم */}
+            <div className="header-navigation">
+
+                <Container fluid>
+
+                    <div className="header-navigation-inner">
+
+
+                        {/* شهر */}
+                        <div className="header-filter">
+
+                            <LocationSelectButton
+                                onClick={locationModal.handleProvincesShow}
+                                numberOfCities={city.numberOfCities}
+                            />
+
+                            <ProvinceModal
+                                city={city}
+                                locationModal={locationModal}
+                            />
+
+                            <CityModal
+                                city={city}
+                                locationModal={locationModal}
+                            />
+
+                        </div>
+
+
+                        {/* نوع کسب‌وکار */}
+                        <div className="header-filter">
+
+                            <BusinessTypeSelectButton
+                                onClick={
+                                    businessTypeModal.handleBusinessTypeModalShow
+                                }
+                                numberOfBusinessTypes={
+                                    businessType.numberOfBusinessTypes
+                                }
+                            />
+
+                            <BusinessTypeModal
+                                businessType={businessType}
+                                businessTypeModal={businessTypeModal}
+                            />
+
+                        </div>
+
+
+                        <div className="header-nav-divider"></div>
+
+
+                        {/* لینک‌ها */}
+                        <nav className="header-links">
+
+                            <a href="#latest">
+                                جدیدترین حراج‌ها
+                            </a>
+
+                            <a href="#discount">
+                                بیشترین تخفیف
+                            </a>
+
+                            <a href="#popular">
+                                محبوب‌ترین‌ها
+                            </a>
+
+                            <a href="#nearby">
+                                حراجی‌های نزدیک من
+                            </a>
+
+                        </nav>
+
+                    </div>
+
+                </Container>
+
             </div>
-        </Navbar>
+
+        </header>
     );
 }

@@ -64,3 +64,9 @@
 .modal-height {
     height: 70%;
 }
+
+.province-modal-title {
+    font-family: "Vazirmatn FD", sans-serif;
+    font-size: 16px !important;
+    font-weight: 600;
+}

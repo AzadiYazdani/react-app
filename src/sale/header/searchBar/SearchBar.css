@@ -1,0 +1,208 @@
+.search-bar-container {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    direction: rtl;
+}
+
+
+/* خود نوار جستجو */
+
+.search-bar {
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+
+.search-bar .form-control {
+    width: 100%;
+    height: 44px;
+
+    border: 1px solid transparent;
+    border-radius: 24px;
+
+    background-color: #f1f2f4;
+
+    padding: 0 46px 0 18px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    direction: rtl;
+    text-align: right;
+
+    box-shadow: none;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.search-bar .form-control::placeholder {
+    color: #777;
+    opacity: 1;
+}
+
+
+.search-bar .form-control:hover {
+    background-color: #eceef0;
+}
+
+
+.search-bar .form-control:focus {
+    background-color: #ffffff;
+
+    border-color: #d6d8dc;
+
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04);
+
+    outline: none;
+}
+
+
+.search-bar-icon {
+    position: absolute;
+
+    right: 16px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #666;
+
+    font-size: 17px;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   پیشنهادهای جستجو
+========================= */
+
+.search-suggestions {
+
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    right: 0;
+    left: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.10);
+
+    overflow: hidden;
+
+    z-index: 2000;
+
+    padding: 8px 0;
+
+}
+
+
+/* عنوان */
+
+.search-suggestions-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 10px 16px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    border-bottom: 1px solid #f1f1f1;
+
+}
+
+
+.search-suggestions-title i {
+    font-size: 14px;
+}
+
+
+/* هر پیشنهاد */
+
+.search-suggestion-item {
+
+    width: 100%;
+
+    min-height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 8px 16px;
+
+    color: #333;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    text-align: right;
+
+    direction: rtl;
+
+    cursor: pointer;
+
+    transition: background-color 0.15s ease;
+}
+
+
+.search-suggestion-item:hover {
+    background-color: #f7f7f7;
+}
+
+
+.search-suggestion-item i {
+    color: #888;
+
+    font-size: 14px;
+
+    flex-shrink: 0;
+}
+
+
+/* موبایل */
+
+@media (max-width: 991px) {
+
+    .search-bar-container {
+        max-width: none;
+    }
+
+    .search-bar .form-control {
+        height: 42px;
+        font-size: 13px;
+    }
+
+    .search-suggestions {
+        top: calc(100% + 6px);
+    }
+
+}

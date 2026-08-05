@@ -1,30 +1,48 @@
-import '../location/Location.css';
-import React, {ChangeEvent} from "react";
+import "../location/Location.css";
+import React from "react";
 
-export default function BusinessTypeButton(props) {
+export default function BusinessTypeButton({
+    businessType,
+    value,
+    onBusinessTypeAdded,
+    onBusinessTypeRemoved
+}) {
 
-    const onChanged = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event) => {
         if (event.target.checked) {
-            props.onBusinessTypeAdded(event.target.value, event.target.name);
+            onBusinessTypeAdded(
+                event.target.value,
+                event.target.name
+            );
         } else {
-            props.onBusinessTypeRemoved(event.target.value, event.target.name);
+            onBusinessTypeRemoved(
+                event.target.value,
+                event.target.name
+            );
         }
-    }
+    };
 
     return (
         <div className="container m-0 ps-0 app-right-to-left">
-                <label className="row-cols-1 m-0 p-0 " htmlFor={props.businessType.id}
-                       onChange={onChanged}>{props.businessType.title}</label>
-                <input className="row-cols-1 m-0 p-0"
-                       type="checkbox"
-                       id={props.businessType.id}
-                       name={props.businessType.title}
-                       defaultChecked={props.value}
-                       value={props.businessType.id}
-                       onChange={onChanged}
-                />
-            <hr className="hr-divider"/>
+
+            <label
+                className="row-cols-1 m-0 p-0"
+                htmlFor={businessType.id}
+            >
+                {businessType.title}
+            </label>
+
+            <input
+                className="row-cols-1 m-0 p-0"
+                type="checkbox"
+                id={businessType.id}
+                name={businessType.title}
+                value={businessType.id}
+                checked={value}
+                onChange={handleChange}
+            />
+
+            <hr className="hr-divider" />
         </div>
     );
-
 }

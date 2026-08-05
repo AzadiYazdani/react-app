@@ -1,0 +1,224 @@
+.sale-card-wrapper {
+    padding: 6px;
+    height: 100%;
+}
+
+.sale-card {
+    height: 100%;
+    border: 1px solid #eeeeee !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    background: #fff;
+    transition: all 0.2s ease;
+    direction: rtl;
+}
+
+.sale-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+}
+
+.sale-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+}
+
+.sale-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sale-percent {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    background: #d92d3a;
+    color: white;
+
+    padding: 5px 9px;
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.sale-status {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+
+    padding: 5px 9px;
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.sale-status.active {
+    background: #198754;
+    color: white;
+}
+
+.sale-status.upcoming {
+    background: #ffc107;
+    color: #222;
+}
+
+.sale-status.finished {
+    background: #6c757d;
+    color: white;
+}
+
+.sale-card-body {
+    padding: 12px !important;
+}
+
+.sale-card-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.sale-card-title {
+    margin: 0 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #222;
+}
+
+.sale-score {
+    white-space: nowrap;
+    font-size: 13px;
+    color: #555;
+}
+
+.sale-score i,
+.sale-rating i {
+    color: #f5b301;
+    margin-right: 4px;
+}
+
+.sale-type {
+    color: #777;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.sale-location {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 8px;
+
+    color: #555;
+    font-size: 13px;
+}
+
+.sale-location i {
+    color: #d73948;
+}
+
+.sale-info {
+    margin-top: 12px;
+}
+
+.sale-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+}
+
+.sale-label {
+    color: #777;
+}
+
+.sale-discount {
+    color: #d73948;
+}
+
+.sale-price-range {
+    color: #333;
+}
+
+.sale-price {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.sale-old-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+
+.sale-new-price {
+    color: #222;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.sale-currency {
+    color: #555;
+    font-size: 12px;
+}
+
+.sale-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 12px;
+}
+
+.sale-rating {
+    font-size: 13px;
+    color: #555;
+}
+
+.sale-favorite {
+    border: none;
+    background: transparent;
+
+    font-size: 18px;
+    color: #888;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.sale-favorite:hover {
+    color: #d73948;
+}
+
+@media (max-width: 576px) {
+
+    .sale-card-image-wrapper {
+        height: 190px;
+    }
+
+    .sale-card-title {
+        font-size: 15px !important;
+    }
+
+}
+
+.sale-card-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+}

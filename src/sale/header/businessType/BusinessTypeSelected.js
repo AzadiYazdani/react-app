@@ -1,16 +1,30 @@
 import React from "react";
 
-export default function BusinessTypeSelected(props) {
-
-    const removeToCollection = event => {
-        props.onBusinessTypeRemoved(event.currentTarget.id, event.currentTarget.title);
-    };
+export default function BusinessTypeSelected({
+    businessType,
+    onBusinessTypeRemoved
+}) {
 
     return (
-        <div className="tag_list" id={props.businessType.id} title= {props.businessType.title} data-id={props.businessType.id} onClick={removeToCollection}>
-            {props.businessType.title}
-            <span className="close">&times;</span>
+        <div className="business-selected-item">
+
+            <span>
+                {businessType.title}
+            </span>
+
+            <button
+                type="button"
+                className="business-selected-remove"
+                onClick={() =>
+                    onBusinessTypeRemoved(
+                        businessType.id,
+                        businessType.title
+                    )
+                }
+            >
+                <i className="bi bi-x"></i>
+            </button>
+
         </div>
     );
 }
-

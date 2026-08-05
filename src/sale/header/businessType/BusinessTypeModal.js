@@ -1,52 +1,119 @@
-import {Button, Modal} from 'react-bootstrap';
-import React from 'react';
-import BusinessTypeButton from "./BusinessTypeButton";
+import { Button, Modal } from "react-bootstrap";
+import React from "react";
 import BusinessTypeSelected from "./BusinessTypeSelected";
+import BusinessTypeTree from "./BusinessTypeTree";
+import { makeBusinessTypeTree } from "./businessTypeUtils";
+import "./BusinessTypeModal.css";
 
-export default function BusinessTypeModal(props) {
 
-    return (<Modal className="app-right-to-left"
-                   {...props}
-                   size="modal-sm"
-                   aria-labelledby="contained-modal-title-vcenter"
-                   centered>
-        <Modal.Header>
-            <Modal.Title id="contained-modal-title-vcenter">
-                نوع کسب و کار
-            </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <div>
-                {Array.isArray(props.selectedBusinessTypes) ? props.selectedBusinessTypes.map((item) => {
-                    return <BusinessTypeSelected
-                        key={item.id}
-                        businessType={item}
-                        onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
+export default function BusinessTypeModal({
+    businessType,
+    businessTypeModal
+}) {
 
-                }) : ""}
-            </div>
+    const businessTypes =
+        Array.isArray(businessType.businessTypes)
+            ? businessType.businessTypes
+            : [];
 
-            {Array.isArray(props.businessTypes.response) ? props.businessTypes.response.map((item) => {
+    const selectedBusinessTypes =
+        Array.isArray(businessType.tempSelectedBusinessTypes)
+            ? businessType.tempSelectedBusinessTypes
+            : [];
 
-                const found = props.selectedBusinessTypes.some(element => {
-                    if (element.id.toString() === item.id.toString()) {
-                        return true;
+
+    const businessTypeTree = makeBusinessTypeTree(businessTypes);
+    return (
+        <Modal
+            className="app-right-to-left business-type-modal"
+            show={businessTypeModal.businessTypeModalShow}
+            onHide={businessTypeModal.handleBusinessTypeModalClose}
+            centered
+        >
+
+            <Modal.Header closeButton>
+                <Modal.Title>
+                    نوع کسب و کار
+                </Modal.Title>
+            </Modal.Header>
+
+
+            <Modal.Body>
+            {
+                selectedBusinessTypes.length > 0 && (
+                    <div className="business-selected-header">
+
+                        <button
+                            type="button"
+                            className="business-clear-all"
+                            onClick={businessType.onClearBusinessTypes}
+                        >
+                            پاک کردن همه
+                        </button>
+                    </div>
+                )
+            }
+
+                <div className="business-selected-list">
+                    {
+                        selectedBusinessTypes.map(item => (
+                            <BusinessTypeSelected
+                                key={item.id}
+                                businessType={item}
+                                onBusinessTypeRemoved={
+                                    businessType.onBusinessTypeRemoved
+                                }
+                            />
+                        ))
                     }
-                });
+                </div>
 
-                return <BusinessTypeButton
-                    key={item.id}
-                    businessType={item}
-                    value={found}
-                    onBusinessTypeAdded={props.onBusinessTypeAdded }
-                    onBusinessTypeRemoved={props.onBusinessTypeRemoved}/>
-            }) : ""}
-        </Modal.Body>
-        <Modal.Footer>
-            <Button onClick={props.onSubmit}>تایید</Button>
-            <Button onClick={props.onHide}>انصراف</Button>
-        </Modal.Footer>
-    </Modal>);
+                {
+                    businessTypeTree.map(item => (
+                        <BusinessTypeTree
+                            key={item.id}
+                            item={item}
+                            selectedBusinessTypes={
+                                selectedBusinessTypes
+                            }
+                            onBusinessTypeAdded={
+                                businessType.onBusinessTypeAdded
+                            }
+                            onBusinessTypeRemoved={
+                                businessType.onBusinessTypeRemoved
+                            }
+                        />
+
+                    ))
+                }
+
+
+            </Modal.Body>
+
+
+
+            <Modal.Footer>
+
+                <Button
+                    className="business-confirm"
+                    onClick={
+                        businessTypeModal.submitBusinessTypes
+                    }
+                >
+                    تایید
+                </Button>
+
+
+               <Button
+                   className="business-cancel"
+                   onClick={
+                       businessTypeModal.cancelBusinessTypes
+                   }
+               >
+                   انصراف
+               </Button>
+
+            </Modal.Footer>
+        </Modal>
+    );
 }
-
-
