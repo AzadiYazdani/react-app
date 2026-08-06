@@ -8,8 +8,7 @@ import SearchBar from "./searchBar/SearchBar";
 import Cart from "./cart/Cart";
 
 import LocationSelectButton from "./location/LocationSelectButton";
-import ProvinceModal from "./location/ProvinceModal";
-import CityModal from "./location/CityModal";
+import LocationModal from "./location/LocationModal";
 
 import BusinessTypeSelectButton from "./businessType/BusinessTypeSelectButton";
 import BusinessTypeModal from "./businessType/BusinessTypeModal";
@@ -77,16 +76,10 @@ export default function Header({
                                 numberOfCities={city.numberOfCities}
                             />
 
-                            <ProvinceModal
+                            <LocationModal
                                 city={city}
                                 locationModal={locationModal}
                             />
-
-                            <CityModal
-                                city={city}
-                                locationModal={locationModal}
-                            />
-
                         </div>
 
 

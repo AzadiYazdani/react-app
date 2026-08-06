@@ -1,5 +1,5 @@
-import "./Location.css";
 import React from "react";
+import "./LocationModal.css";
 
 export default function CityButton({
     city,
@@ -17,25 +17,19 @@ export default function CityButton({
     };
 
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-10 state-height me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <div className="form-check">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id={`city-${city.id}`}
-                            checked={value}
-                            onChange={onChanged}
-                        />
+        <label className="city-item">
 
-                        <label className="form-check-label" htmlFor={`city-${city.id}`} >
-                            {city.name}
-                        </label>
-                    </div>
-                    <hr className="hr-divider"/>
-                </div>
-            </div>
-        </div>
+            <input
+                className="city-checkbox"
+                type="checkbox"
+                checked={value}
+                onChange={onChanged}
+            />
+
+            <span className="city-name">
+                {city.name}
+            </span>
+
+        </label>
     );
 }

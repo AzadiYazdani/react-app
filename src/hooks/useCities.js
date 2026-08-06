@@ -8,121 +8,77 @@ export default function useCities() {
 
     const [selectedProvince, setSelectedProvince] = useState(null);
 
-    // شهرهای تایید شده
     const [selectedCities, setSelectedCities] = useState([]);
 
-    // شهرهای انتخاب شده داخل مودال قبل از تایید
     const [tempSelectedCities, setTempSelectedCities] = useState([]);
-
 
     const [loadingProvinces, setLoadingProvinces] = useState(false);
     const [loadingCities, setLoadingCities] = useState(false);
+    const [step, setStep] = useState("province");
 
-
-
-    // =========================
     // دریافت استان‌ها
-    // =========================
-
     const loadProvinces = async () => {
-
         setLoadingProvinces(true);
 
         try {
-
             const response = await fetch(
-                "http://localhost:8081/location/provinces/all"
+                `${config.API_BASE_URL}/location/provinces/all`
             );
 
             const data = await response.json();
 
             if (Array.isArray(data)) {
                 setProvinces(data);
-            }
-            else if (Array.isArray(data.data)) {
+            } else if (Array.isArray(data.data)) {
                 setProvinces(data.data);
-            }
-            else {
+            } else {
                 setProvinces([]);
             }
-
         } catch(error) {
-
             console.error("loadProvinces:", error);
             setProvinces([]);
-
         } finally {
-
             setLoadingProvinces(false);
-
         }
     };
 
-
-
-    // =========================
-    // دریافت شهرها
-    // =========================
-
+    // دریافت شهرهای یک استان
     const loadCities = async (provinceId) => {
-
         setLoadingCities(true);
 
         try {
-
             const response = await fetch(
                 `${config.API_BASE_URL}/location/provinces/${provinceId}/cities`
             );
 
-
             const data = await response.json();
-
 
             if (Array.isArray(data)) {
                 setCities(data);
-            }
-            else if (Array.isArray(data.data)) {
+            } else if (Array.isArray(data.data)) {
                 setCities(data.data);
-            }
-            else {
+            } else {
                 setCities([]);
             }
 
 
-            setSelectedProvince(
-                provinces.find(
-                    province =>
-                        province.id.toString() === provinceId.toString()
-                ) || null
-            );
-
-
             // انتقال انتخاب‌های تایید شده به حالت موقت
-            setTempSelectedCities([...selectedCities]);
 
+            setTempSelectedCities([
+                ...selectedCities
+            ]);
 
         } catch(error) {
-
             console.error("loadCities:", error);
             setCities([]);
-
         } finally {
-
             setLoadingCities(false);
-
         }
     };
 
-
-
-    // =========================
-    // افزودن موقت شهر
-    // =========================
-
+    // افزودن شهر
     const onCityAdded = (city) => {
-
         setTempSelectedCities(prev => {
-
             const exists = prev.some(
                 item => item.id === city.id
             );
@@ -130,96 +86,54 @@ export default function useCities() {
             if (exists) {
                 return prev;
             }
-
             return [
                 ...prev,
                 city
             ];
-
         });
-
     };
 
 
-
-    // =========================
-    // حذف موقت شهر
-    // =========================
-
+    // حذف شهر
     const onCityRemoved = (city) => {
-
         setTempSelectedCities(prev =>
             prev.filter(
                 item => item.id !== city.id
             )
         );
-
     };
 
 
 
-    // =========================
     // تایید انتخاب شهرها
-    // =========================
-
     const confirmCities = () => {
 
         setSelectedCities([
             ...tempSelectedCities
         ]);
-
     };
 
-
-
-    // =========================
-    // لغو تغییرات مودال شهر
-    // =========================
-
-    const cancelCities = () => {
-
-        setTempSelectedCities([
-            ...selectedCities
-        ]);
-
-    };
-
-
-
-    // =========================
-    // پاک کردن انتخاب‌های موقت
-    // (داخل مودال شهرها)
-    // =========================
-
+    // پاک کردن داخل مودال
     const onClearCities = () => {
-
         setTempSelectedCities([]);
-
     };
 
 
 
-    // =========================
-    // پاک کردن شهرهای تایید شده
-    // (داخل مودال استان‌ها)
-    // =========================
-
+    // پاک کردن کامل
     const clearSelectedCities = () => {
-
         setSelectedCities([]);
-
         setTempSelectedCities([]);
-
     };
-
-
 
     return {
 
         provinces,
         cities,
-
+        step,
+        setStep,
         selectedProvince,
+        setSelectedProvince,
 
         selectedCities,
         tempSelectedCities,
@@ -227,21 +141,19 @@ export default function useCities() {
         loadingProvinces,
         loadingCities,
 
-
         loadProvinces,
         loadCities,
-
 
         onCityAdded,
         onCityRemoved,
 
         confirmCities,
-        cancelCities,
 
         onClearCities,
         clearSelectedCities,
 
-
         numberOfCities: selectedCities.length
+
     };
+
 }
