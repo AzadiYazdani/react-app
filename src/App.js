@@ -28,7 +28,8 @@ function App() {
     );
 
     const locationModal = useLocationModal(
-        city.loadProvinces
+        city.loadProvinces,
+        city.beginSelection
     );
 
 

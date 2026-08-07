@@ -1,177 +1,392 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import CityButton from "./CityButton";
 import "./LocationModal.css";
+
 
 export default function LocationModal({
     city,
     locationModal
 }) {
 
+
     const [search, setSearch] = useState("");
 
+
+
     useEffect(() => {
-        if (locationModal.provincesModalShow) {
+
+        if(locationModal.provincesModalShow){
+
             city.beginSelection();
+
+            setSearch("");
+
+            city.setStep("province");
+
         }
-    }, [locationModal.provincesModalShow]);
+
+    }, [
+        locationModal.provincesModalShow
+    ]);
+
+
+
+
 
     const provinces = Array.isArray(city.provinces)
         ? city.provinces
         : [];
 
 
-    const filteredProvinces = provinces.filter(province =>
-        (province.name || "")
+
+
+    const filteredProvinces =
+        provinces.filter(item =>
+            (item.name || "")
             .toLowerCase()
-            .includes(search.trim().toLowerCase())
-    );
+            .includes(
+                search.trim().toLowerCase()
+            )
+        );
 
 
-    const filteredCities = city.cities.filter(item =>
-        (item.name || "")
+
+
+    const filteredCities =
+        city.cities.filter(item =>
+            (item.name || "")
             .toLowerCase()
-            .includes(search.trim().toLowerCase())
-    );
+            .includes(
+                search.trim().toLowerCase()
+            )
+        );
 
 
-    const handleProvinceClick = async (province) => {
+
+
+
+    const handleProvinceClick = async (province)=>{
+
+
         city.setSelectedProvince(province);
+
+
         setSearch("");
-        await city.loadCities(province.id);
+
+
+        await city.loadCities(
+            province.id
+        );
+
+
         city.setStep("city");
-    };
 
-    const backToProvinces = () => {
-        city.setStep("province");
-        setSearch("");
     };
 
 
-    const closeModal = () => {
 
-        city.cancelSelection();
+
+
+
+    const backToProvinces = ()=>{
 
         city.setStep("province");
 
         setSearch("");
+
+    };
+
+
+
+
+
+
+
+    const closeModal = ()=>{
+
+
+        city.setStep("province");
+
+
+        setSearch("");
+
 
         locationModal.handleProvincesClose();
 
+
     };
 
+
+
+
+
+
+
+    const cancelModal = ()=>{
+
+
+        city.cancelSelection();
+
+
+        closeModal();
+
+
+    };
+
+
+
+
+
+
+
+    const confirmModal = ()=>{
+
+
+        city.confirmSelection();
+
+
+        closeModal();
+
+
+    };
+
+
+
+
+
+
+
+
     return (
+
         <Modal
-            show={locationModal.provincesModalShow}
-            onHide={closeModal}
+
+            show={
+                locationModal.provincesModalShow
+            }
+
+            onHide={cancelModal}
+
             centered
+
             dir="rtl"
+
             className="province-modal"
+
         >
+
+
+
             <Modal.Header closeButton>
+
+
                 <Modal.Title>
+
                     {
                         city.step === "city"
-                            ? city.selectedProvince?.name || "انتخاب شهر"
-                            : "انتخاب استان"
+
+                        ?
+
+                        city.selectedProvince?.name
+                        ||
+                        "انتخاب شهر"
+
+
+                        :
+
+                        "انتخاب استان"
                     }
 
+
                 </Modal.Title>
+
+
             </Modal.Header>
 
+
+
+
+
+
             <Modal.Body>
+
+
+
+
+
                 {
-                    city.step === "city" && (
-                        <div className="back-button-row">
+                    city.step === "city" &&
+
+
+                    <div className="back-button-row">
+
+
+                        <button
+
+                            className="back-button"
+
+                            onClick={backToProvinces}
+
+                        >
+
+                            <i className="bi bi-arrow-right"></i>
+
+                            بازگشت به استان‌ها
+
+
+                        </button>
+
+
+
+
+
+
+                        {
+                            city.tempSelectedCities.length > 0 &&
+
+
                             <button
-                                className="back-button"
-                                onClick={backToProvinces}
-                            >
-                                <i className="bi bi-arrow-right"></i>
-                                بازگشت به استان‌ها
-                            </button>
-                        </div>
-                    )
-                }
 
-                {
-                    city.tempSelectedCities.length > 0 && (
-                        <div className="selected-cities-box">
-                            <div className="selected-cities-header">
-                                <button
-                                    className="clear-all-button"
-                                    onClick={city.onClearCities}
-                                >
-                                    پاک کردن همه
-                                </button>
+                                className="clear-all-button"
 
-                            </div>
-
-
-
-                            <div className="selected-cities-list">
-
-                                {
-                                    city.tempSelectedCities.map(item => (
-
-                                        <div
-                                            key={item.id}
-                                            className="selected-city-chip"
-                                        >
-
-                                            <span>
-                                                {item.name}
-                                            </span>
-
-
-                                            <button
-                                                className="remove-city-button"
-                                                onClick={() =>
-                                                    city.onCityRemoved(item)
-                                                }
-                                            >
-                                                ×
-                                            </button>
-
-                                        </div>
-
-                                    ))
+                                onClick={
+                                    city.clearTempCities
                                 }
 
-                            </div>
+                            >
+
+                                پاک کردن همه
+
+
+                            </button>
+
+                        }
+
+
+                    </div>
+
+
+                }
+
+
+
+
+
+
+
+
+
+                {
+                    city.tempSelectedCities.length > 0 &&
+
+
+                    <div className="selected-cities-box">
+
+
+                        <div className="selected-cities-list">
+
+
+
+                            {
+                                city.tempSelectedCities.map(item=>(
+
+
+                                    <div
+
+                                        key={item.id}
+
+                                        className="selected-city-chip"
+
+                                    >
+
+
+                                        <span>
+
+                                            {item.name}
+
+                                        </span>
+
+
+
+                                        <button
+
+                                            className="remove-city-button"
+
+                                            onClick={() =>
+                                                city.removeCity(item)
+                                            }
+
+                                        >
+
+                                            ×
+
+
+                                        </button>
+
+
+
+                                    </div>
+
+
+                                ))
+                            }
+
 
 
                         </div>
 
-                    )
+
+                    </div>
+
+
                 }
+
+
+
+
+
 
 
 
 
                 <div className="province-search">
 
+
                     <i className="bi bi-search"></i>
 
 
                     <input
 
+
                         type="text"
+
 
                         value={search}
 
-                        onChange={(e) =>
-                            setSearch(e.target.value)
+
+                        onChange={
+                            e=>setSearch(e.target.value)
                         }
+
 
                         placeholder={
+
                             city.step === "province"
-                                ? "جستجو در استان‌ها"
-                                : "جستجو در شهرها"
+
+                            ?
+
+                            "جستجو در استان‌ها"
+
+                            :
+
+                            "جستجو در شهرها"
+
                         }
 
+
                     />
+
 
                 </div>
 
@@ -179,44 +394,60 @@ export default function LocationModal({
 
 
 
+
+
+
+
                 {
-                    city.step === "province" && (
-
-                        <div className="province-list">
+                    city.step === "province" &&
 
 
-                            {
-                                filteredProvinces.map(province => (
-
-                                    <button
-
-                                        key={province.id}
-
-                                        className="province-item"
-
-                                        onClick={() =>
-                                            handleProvinceClick(province)
-                                        }
-
-                                    >
-
-                                        <span>
-                                            {province.name}
-                                        </span>
+                    <div className="province-list">
 
 
-                                        <i className="bi bi-chevron-left"></i>
+                        {
+                            filteredProvinces.map(province=>(
 
 
-                                    </button>
-
-                                ))
-                            }
+                                <button
 
 
-                        </div>
+                                    key={province.id}
 
-                    )
+
+                                    className="province-item"
+
+
+                                    onClick={() =>
+                                        handleProvinceClick(province)
+                                    }
+
+
+                                >
+
+
+                                    <span>
+
+                                        {province.name}
+
+                                    </span>
+
+
+
+                                    <i className="bi bi-chevron-left"></i>
+
+
+                                </button>
+
+
+
+                            ))
+                        }
+
+
+                    </div>
+
+
                 }
 
 
@@ -224,59 +455,80 @@ export default function LocationModal({
 
 
 
+
+
+
                 {
-                    city.step === "city" && (
-
-                        <div className="city-list">
+                    city.step === "city" &&
 
 
-                            {
-                                city.loadingCities ? (
-
-                                    <div className="text-center">
-
-                                        در حال دریافت شهرها...
-
-                                    </div>
-
-                                )
+                    <div className="city-list">
 
 
-                                :
+                        {
 
-                                filteredCities.map(item => (
+                            city.loadingCities
 
-                                    <CityButton
+                            ?
 
-                                        key={item.id}
+                            <div className="text-center">
 
-                                        city={item}
+                                در حال دریافت شهرها...
 
-                                        value={
-                                            city.tempSelectedCities.some(
-                                                x => x.id === item.id
-                                            )
-                                        }
-
-                                        onCityAdded={
-                                            city.onCityAdded
-                                        }
-
-                                        onCityRemoved={
-                                            city.onCityRemoved
-                                        }
-
-                                    />
-
-                                ))
-
-                            }
+                            </div>
 
 
-                        </div>
+                            :
 
-                    )
+
+                            filteredCities.map(item=>(
+
+
+                                <CityButton
+
+
+                                    key={item.id}
+
+
+                                    city={item}
+
+
+                                    value={
+
+                                        city.tempSelectedCities.some(
+
+                                            x=>x.id===item.id
+
+                                        )
+
+                                    }
+
+
+
+                                    onCityAdded={
+                                        city.addCity
+                                    }
+
+
+
+                                    onCityRemoved={
+                                        city.removeCity
+                                    }
+
+
+                                />
+
+
+                            ))
+
+                        }
+
+
+                    </div>
+
+
                 }
+
 
 
 
@@ -286,24 +538,24 @@ export default function LocationModal({
 
 
 
+
+
+
+
             <Modal.Footer>
+
 
 
                 <button
 
                     className="province-confirm"
 
-                    onClick={() => {
-
-                        city.confirmCities();
-
-                        closeModal();
-
-                    }}
+                    onClick={confirmModal}
 
                 >
 
                     تایید
+
 
                 </button>
 
@@ -315,21 +567,27 @@ export default function LocationModal({
 
                     className="province-cancel"
 
-                    onClick={closeModal}
+                    onClick={cancelModal}
 
                 >
 
                     انصراف
 
+
                 </button>
+
+
 
 
             </Modal.Footer>
 
 
 
+
+
         </Modal>
 
     );
+
 
 }
