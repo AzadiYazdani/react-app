@@ -1,414 +1,354 @@
 /* modal */
 
-.province-modal .modal-dialog{
-    width:380px;
-    max-width:calc(100% - 32px);
-    margin-left:auto;
-    margin-right:auto;
+.province-modal .modal-dialog {
+    width: 380px;
+    max-width: calc(100% - 32px);
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.province-modal .modal-content{
-    height:500px;
-    border-radius:10px;
-    border:none;
-    overflow:hidden;
-    font-family:"IRANSansX","IRANSans","Vazirmatn",sans-serif;
-    box-sizing:border-box;
+.province-modal .modal-content {
+    height: 500px;
+    border-radius: 10px;
+    border: none;
+    overflow: hidden;
+    font-family: "IRANSansX", "IRANSans", "Vazirmatn", sans-serif;
+    box-sizing: border-box;
 }
-
 
 /* header */
 
-.province-modal .modal-header{
-    height:52px;
-    padding:0 16px;
-    border-bottom:1px solid #eee;
+.province-modal .modal-header {
+    height: 52px;
+    padding: 0 16px;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
 }
 
-.province-modal .modal-title{
-    font-size:14px;
-    font-weight:500;
-    color:#333;
+.province-modal .modal-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
 }
 
-.province-modal .btn-close{
-    width:22px;
-    height:22px;
-    transform:scale(.75);
-    margin-left:8px;
+/* دکمه بستن - هم‌جای مودال کسب‌وکار (سمت راست) */
+.province-modal .btn-close {
+    width: 22px;
+    height: 22px;
+    transform: scale(.75);
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    padding: 0;
 }
-
 
 /* body */
 
-.province-modal .modal-body{
-    padding:12px 16px;
-    display:flex;
-    flex-direction:column;
-    overflow:hidden;
+.province-modal .modal-body {
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex: 1;
 }
 
-
-/* search */
-
-.province-search{
-    position:relative;
-    height:38px;
-    width:100%;
-    margin-bottom:10px;
+/* ردیف دکمه بازگشت به استان‌ها (فقط دکمه بازگشت) */
+.back-button-row {
+    width: 100%;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 6px;
+    padding: 0 4px;
+    flex-shrink: 0;
 }
 
-.province-search i{
-    position:absolute;
-    right:12px;
-    top:11px;
-    font-size:13px;
-    color:#999;
+.back-button-placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
-.province-search input{
-    width:100%;
-    height:38px;
-    border:1px solid #ddd;
-    border-radius:6px;
-    padding-right:35px;
-    padding-left:10px;
-    font-family:inherit;
-    font-size:12px;
-    outline:none;
-    box-sizing:border-box;
+.back-button {
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 0;
+    background: white;
+    padding: 0 4px;
+    font-size: 12px;
+    color: #444;
+    cursor: pointer;
 }
 
-.province-search input:focus{
-    border-color:#bbb;
+.back-button i {
+    font-size: 12px;
 }
 
+/* جعبه نمایش شهرهای انتخاب شده (چند ردیفه با اسکرول عمودی) */
+.selected-cities-box {
+    min-height: 28px;
+    max-height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    overflow-y: auto;
+    margin-bottom: 6px;
+    flex-shrink: 0;
+    padding: 2px 4px;
+}
 
-/* province list */
+/* لیست چیپ‌ها (همان جعبه است، ولی برای ساختار داخل JS) */
+.selected-cities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+}
 
-.province-list{
-    flex:1;
-    overflow-y:auto;
+.selected-city-chip {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 24px;
+    border: 1px solid #d32f2f;
+    border-radius: 12px;
+    padding: 0 8px;
+    background: white;
+    font-size: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.selected-city-chip span {
+    color: #c62828;
+}
+
+/* دکمه پاک کردن همه (به صورت لینک قرمز در سمت چپ) */
+.clear-all-inline {
+    background: none;
+    border: none;
+    color: #d32f2f !important;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0;
+    white-space: nowrap;
+    font-family: inherit;
+    transition: color 0.2s;
+    margin-right: auto;
+    margin-left: 4px;
+    align-self: center;
+    flex-shrink: 0;
+}
+
+.clear-all-inline:hover {
+    color: #b71c1c !important;
+    text-decoration: underline;
+}
+
+/* مخفی کردن دکمه قدیمی پاک کردن همه (که در back-button-row بود) */
+.back-button-row .clear-all-button,
+.clear-all-button {
+    display: none;
+}
+
+/* پیغام خالی "یک شهر را انتخاب کنید" */
+.empty-city-message {
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* دکمه حذف هر شهر (x) */
+.remove-city-button {
+    width: 16px;
+    height: 16px;
+    border: none;
+    background: none;
+    color: #d32f2f;
+    cursor: pointer;
+    padding: 0;
+    line-height: 14px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.remove-city-button:hover {
+    color: #b71c1c;
+}
+
+/* جستجو */
+.province-search {
+    position: relative;
+    height: 34px;
+    width: 100%;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.province-search i {
+    position: absolute;
+    right: 12px;
+    top: 9px;
+    font-size: 12px;
+    color: #999;
+}
+
+.province-search input {
+    width: 100%;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding-right: 35px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.province-search input:focus {
+    border-color: #bbb;
+}
+
+/* لیست استان‌ها */
+.province-list {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
 }
 
 .province-list::-webkit-scrollbar,
-.city-list::-webkit-scrollbar{
-    width:4px;
+.city-list::-webkit-scrollbar {
+    width: 4px;
 }
 
 .province-list::-webkit-scrollbar-thumb,
-.city-list::-webkit-scrollbar-thumb{
-    background:#ccc;
-    border-radius:10px;
+.city-list::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
 }
 
-
-/* province item */
-
-.province-item{
-    height:37px;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:white;
-    border:0;
-    border-bottom:1px solid #f1f1f1;
-    padding:0 4px;
-    cursor:pointer;
+.province-item {
+    height: 37px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border: 0;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 0 4px;
+    cursor: pointer;
 }
 
-.province-item:hover{
-    background:#fafafa;
+.province-item:hover {
+    background: #fafafa;
 }
 
-.province-item span{
-    font-size:13px;
-    color:#333;
+.province-item span {
+    font-size: 13px;
+    color: #333;
 }
 
-.province-item i{
-    font-size:11px;
-    color:#999;
+.province-item i {
+    font-size: 11px;
+    color: #999;
 }
 
-
-/* footer */
-
-.province-modal .modal-footer{
-    height:60px;
-    padding:10px 16px;
-    display:flex;
-    gap:8px;
-    border-top:1px solid #eee;
+/* لیست شهرها */
+.city-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0;
+    min-height: 0;
 }
 
+/* استایل آیتم‌های شهر (در صورت استفاده از CityButton) */
+.city-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 37px;
+    padding: 0 4px;
+    border-bottom: 1px solid #f1f1f1;
+    cursor: pointer;
+}
 
-/* buttons */
+.city-item:hover {
+    background: #fafafa;
+}
 
+.city-checkbox {
+    order: 1;
+    margin-left: 10px;
+    margin-right: 0;
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    accent-color: #c62828;
+    cursor: pointer;
+}
+
+.city-name {
+    order: 2;
+    flex: 1;
+    text-align: right;
+    font-size: 13px;
+    color: #333;
+}
+
+.city-hint {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #999;
+}
+
+/* فوتر مودال */
+.province-modal .modal-footer {
+    height: 54px;
+    padding: 8px 16px;
+    display: flex;
+    gap: 8px;
+    border-top: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+/* دکمه‌های تایید و انصراف */
 .province-confirm,
-.province-cancel{
-    flex:1;
-    height:38px;
-    border-radius:7px;
-    font-family:inherit;
-    font-size:13px;
-    cursor:pointer;
+.province-cancel {
+    flex: 1;
+    height: 36px;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
 }
 
-
-.province-confirm{
-    background:#a62626;
-    border:1px solid #a62626;
-    color:white;
+.province-confirm {
+    background: #a62626;
+    border: 1px solid #a62626;
+    color: white;
 }
 
-
-.province-cancel{
-    background:white;
-    border:1px solid #ddd;
-    color:#555;
-}
-/* پاک کردن همه در صفحه استان ها */
-
-.province-clear-row{
-    height:32px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid #eee;
-    margin-bottom:8px;
-    padding:0 4px;
+.province-cancel {
+    background: white;
+    border: 1px solid #ddd;
+    color: #555;
 }
 
-.province-clear-row span{
-    font-size:12px;
-    color:#777;
-}
-
-.province-clear-row .clear-all-button{
-    border:none;
-    background:none;
-    color:#d32f2f;
-    font-size:12px;
-    cursor:pointer;
-    padding:0;
-}
-
-.province-clear-row .clear-all-button:hover{
-    color:#b71c1c;
-}
-
-/* back row */
-
-.back-button-row{
-    width:100%;
-    height:40px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid #eee;
-    margin-bottom:10px;
-}
-
-
-.back-button{
-    height:40px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    border:0;
-    background:white;
-    padding:0 4px;
-    font-size:13px;
-    color:#444;
-    cursor:pointer;
-}
-
-.back-button i{
-    font-size:14px;
-}
-
-
-/* پاک کردن همه */
-
-.back-button-row .clear-all-button,
-.clear-all-button{
-    border:none;
-    background:none;
-    color:#d32f2f !important;
-    font-size:12px;
-    cursor:pointer;
-    padding:0 4px;
-}
-
-.back-button-row .clear-all-button:hover,
-.clear-all-button:hover{
-    color:#b71c1c !important;
-}
-
-
-/* city hint */
-
-.city-guide-text{
-    font-size:12px;
-    color:#999;
-    margin-bottom:10px;
-    padding-right:4px;
-}
-
-
-/* selected cities */
-
-.selected-cities-box{
-    min-height:55px;
-    max-height:85px;
-    overflow:hidden;
-}
-
-
-.selected-cities-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:8px;
-}
-
-.selected-cities-header span{
-    font-size:12px;
-    color:#666;
-}
-
-
-.selected-cities-list{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-}
-
-
-.selected-city-chip{
-    display:flex;
-    align-items:center;
-    gap:5px;
-    height:27px;
-    border:1px solid #d32f2f;
-    border-radius:14px;
-    padding:0 9px;
-    background:white;
-    font-size:12px;
-}
-
-
-.selected-city-chip span{
-    color:#c62828;
-}
-.selected-cities-top{
-    height:28px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:6px;
-}
-
-.selected-cities-top span{
-    font-size:12px;
-    color:#666;
-}
-
-.selected-cities-top .clear-all-button{
-    color:#d32f2f;
-    border:none;
-    background:none;
-    font-size:12px;
-    cursor:pointer;
-    padding:0;
-}
-
-.selected-cities-top .clear-all-button:hover{
-    color:#b71c1c;
-}
-
-/* remove x */
-
-.remove-city-button{
-    width:20px;
-    height:20px;
-    border:none;
-    background:none;
-    color:#d32f2f;
-    cursor:pointer;
-    padding:0;
-    line-height:18px;
-    font-size:17px;
-    font-weight:400;
-}
-
-.remove-city-button:hover{
-    color:#b71c1c;
-}
-
-
-/* city list */
-
-.city-list{
-    flex:1;
-    overflow-y:auto;
-    padding:0;
-}
-
-
-/* city item */
-
-.city-item{
-    display:flex;
-    align-items:center;
-    width:100%;
-    height:37px;
-    padding:0 4px;
-    border-bottom:1px solid #f1f1f1;
-    cursor:pointer;
-}
-
-.city-item:hover{
-    background:#fafafa;
-}
-
-
-/* checkbox */
-
-.city-checkbox{
-    order:1;
-    margin-left:10px;
-    margin-right:0;
-    width:15px;
-    height:15px;
-    flex-shrink:0;
-    accent-color:#c62828;
-    cursor:pointer;
-}
-
-
-/* city name */
-
-.city-name{
-    order:2;
-    flex:1;
-    text-align:right;
-    font-size:13px;
-    color:#333;
-}
-
-
-.city-hint{
-    height:35px;
-    display:flex;
-    align-items:center;
-    font-size:12px;
-    color:#999;
-}
-
-
-body{
-    overflow-x:hidden;
+body {
+    overflow-x: hidden;
 }

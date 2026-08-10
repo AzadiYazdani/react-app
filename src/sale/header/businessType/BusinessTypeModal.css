@@ -1,189 +1,251 @@
-.business-type-row{
-    height:40px;
-    display:flex;
-    align-items:center;
-    direction:rtl;
-    gap:6px;
-    border-bottom:1px solid #eee;
-    font-family:inherit;
-    font-size:13px;
-    font-weight:400;
-    color:#333;
-    cursor:pointer;
+/* استایل‌های موجود */
+.business-type-row {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    direction: rtl;
+    gap: 6px;
+    border-bottom: 1px solid #eee;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    color: #333;
+    cursor: pointer;
 }
 
-.business-type-row input[type="checkbox"]{
-    width:15px;
-    height:15px;
-    accent-color:#a62626;
-    cursor:pointer;
+.business-type-row input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: #a62626;
+    cursor: pointer;
 }
 
-.business-title{
-    text-align:right;
+.business-title {
+    text-align: right;
 }
 
-.business-arrow{
-    width:4px;
-    height:4px;
-    border-left:1px solid #777;
-    border-bottom:1px solid #777;
-    transform:rotate(45deg);
-    cursor:pointer;
-    margin-right:2px;
-    flex-shrink:0;
+.business-arrow {
+    width: 4px;
+    height: 4px;
+    border-left: 1px solid #777;
+    border-bottom: 1px solid #777;
+    transform: rotate(45deg);
+    cursor: pointer;
+    margin-right: 2px;
+    flex-shrink: 0;
 }
 
-.business-arrow.open{
-    transform:rotate(-45deg);
+.business-arrow.open {
+    transform: rotate(-45deg);
 }
 
-.business-type-modal .modal-header{
-
-    display:flex;
-    align-items:center;
-    direction:rtl;
+/* مودال */
+.business-type-modal .modal-header {
+    display: flex;
+    align-items: center;
+    direction: rtl;
 }
 
-.business-type-modal .btn-close{
-    margin-right:auto !important;
-    margin-left:0 !important;
-    padding:0;
-
-    width: 12px;
-    height: 12px;
-    background-size: 12px 12px;
+/* دکمه بستن - هم‌اندازه و هم‌جای مودال مکان */
+.business-type-modal .btn-close {
+    width: 22px;
+    height: 22px;
+    transform: scale(.75);
+    margin-left: 8px;
+    padding: 0;
 }
 
-.business-type-modal .modal-title{
+.business-type-modal .modal-title {
     margin: 0;
-    margin-right:0;
+    margin-right: 0;
     font-size: 16px;
     font-weight: 500;
-    color:#333;
+    color: #333;
 }
 
-
-.business-type-modal .modal-footer{
-    height:60px;
-    padding:10px 16px;
-    display:flex;
-    gap:8px;
-    border-top:1px solid #eee;
+.business-type-modal .modal-footer {
+    height: 60px;
+    padding: 10px 16px;
+    display: flex;
+    gap: 8px;
+    border-top: 1px solid #eee;
 }
-
 
 .business-confirm,
-.business-cancel{
-    flex:1;
-    height:32px;
-    min-height:32px;
-    padding:0;
-    border-radius:7px;
-    font-family:inherit;
-    font-size:12px;
-    line-height:32px;
-    cursor:pointer;
+.business-cancel {
+    flex: 1;
+    height: 32px;
+    min-height: 32px;
+    padding: 0;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 32px;
+    cursor: pointer;
 }
 
-
-.business-confirm:not(:disabled){
-    background:#a62626;
-    border-color:#a62626;
+.business-confirm:not(:disabled) {
+    background: #a62626;
+    border-color: #a62626;
 }
 
-
-/* cancel */
-
-.business-cancel{
-    background:white;
-    border:1px solid #ddd;
-    color:#555;
+.business-cancel {
+    background: white;
+    border: 1px solid #ddd;
+    color: #555;
 }
 
-.business-type-modal .modal-dialog{
+.business-type-modal .modal-dialog {
     max-width: 380px;
 }
 
-.business-selected-list{
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-    gap:6px;
-    margin-bottom:10px;
-    direction:rtl;
+/* لیست انتخاب‌شده‌ها (با ارتفاع ثابت) */
+.business-selected-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-height: 36px;
+    margin-bottom: 6px;
+    direction: rtl;
+    padding: 4px 0;
+    align-items: center;
 }
 
-.business-selected-item{
-    display:flex;
-    align-items:center;
-    background:white;
-    color:#a62626;
-    border:1px solid #a62626;
-    border-radius:15px;
-    padding:4px 10px;
-    font-family:inherit;
-    font-size:12px;
-    font-weight:400;
-    gap:6px;
-    white-space:nowrap;
+/* دکمه پاک کردن همه (به صورت لینک قرمز در سمت چپ) */
+.business-clear-all-inline {
+    background: none;
+    border: none;
+    color: #d32f2f !important;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0;
+    white-space: nowrap;
+    font-family: inherit;
+    transition: color 0.2s;
+    margin-right: auto; /* چسبیدن به سمت چپ (در rtl) */
 }
 
-.business-selected-item button{
-    background:none;
-    border:none;
-    color:#a62626;
-    font-size:15px;
-    line-height:1;
-    cursor:pointer;
-    padding:0;
+.business-clear-all-inline:hover {
+    color: #b71c1c !important;
+    text-decoration: underline;
 }
 
-.business-type-modal .modal-content{
-    font-family:
-        "IRANSansX",
-        "IRANSans",
-        "Vazirmatn",
-        sans-serif;
-    width:100%;
+/* پیغام خالی */
+.business-empty-message {
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.business-type-modal .modal-body{
-    font-family:inherit;
+.business-selected-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    color: #a62626;
+    border: 1px solid #a62626;
+    border-radius: 15px;
+    padding: 4px 10px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    gap: 6px;
+    white-space: nowrap;
 }
 
-.business-selected-remove{
-    width:18px;
-    height:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:none;
-    border:none;
-    color:#a62626;
-    cursor:pointer;
-    padding:0;
+.business-selected-item button {
+    background: none;
+    border: none;
+    color: #a62626;
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
 }
 
-.business-selected-remove i{
-    font-size:16px;
-    line-height:1;
+.business-type-modal .modal-content {
+    font-family: "IRANSansX", "IRANSans", "Vazirmatn", sans-serif;
+    width: 100%;
 }
 
-.business-selected-header{
-    display:flex;
-    justify-content:flex-start;
-    margin-bottom:8px;
+.business-type-modal .modal-body {
+    font-family: inherit;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.business-clear-all{
-    background:none;
-    border:none;
-    color:#a62626;
-    font-size:12px;
-    cursor:pointer;
-    padding:0;
+.business-selected-remove {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #a62626;
+    cursor: pointer;
+    padding: 0;
 }
 
+.business-selected-remove i {
+    font-size: 16px;
+    line-height: 1;
+}
 
+/* جستجو */
+.business-search {
+    position: relative;
+    height: 34px;
+    width: 100%;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
 
+.business-search i {
+    position: absolute;
+    right: 12px;
+    top: 9px;
+    font-size: 12px;
+    color: #999;
+}
+
+.business-search input {
+    width: 100%;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding-right: 35px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.business-search input:focus {
+    border-color: #bbb;
+}
+
+/* لیست درخت (با اسکرول) */
+.business-tree-list {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.business-tree-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.business-tree-list::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
