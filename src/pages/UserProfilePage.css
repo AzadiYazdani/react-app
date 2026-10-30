@@ -1,0 +1,121 @@
+
+.user-profile-page {
+    width: 100%;
+    padding: 32px 20px;
+    color: #263238;
+}
+.user-profile-card {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+.user-profile-card h2 {
+    margin: 0 0 10px;
+    font-size: 23px;
+    font-weight: 700;
+    text-align: right;
+}
+.user-profile-description {
+    margin-bottom: 24px;
+    color: #64748b;
+    font-size: 14px;
+}
+.user-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+.user-profile-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+.user-profile-field.full-width {
+    grid-column: 1 / -1;
+}
+.user-profile-field label {
+    font-size: 14px;
+    font-weight: 600;
+}
+.user-profile-field input,
+.user-profile-field textarea {
+    width: 100%;
+    padding: 11px 12px;
+    color: #263238;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.user-profile-field input:focus,
+.user-profile-field textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+.user-profile-field textarea {
+    resize: vertical;
+}
+.required-mark {
+    color: #dc2626;
+}
+.user-profile-save {
+    min-width: 150px;
+    margin-top: 24px;
+    padding: 11px 24px;
+    color: #fff;
+    background: #2563eb;
+    border: none;
+    border-radius: 7px;
+    font: inherit;
+    cursor: pointer;
+}
+.user-profile-save:hover {
+    background: #1d4ed8;
+}
+.user-profile-save:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+.user-profile-success,
+.user-profile-error,
+.user-profile-status {
+    margin-bottom: 18px;
+    padding: 12px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+.user-profile-success {
+    color: #166534;
+    background: #dcfce7;
+}
+.user-profile-error {
+    color: #991b1b;
+    background: #fee2e2;
+}
+.user-profile-status {
+    margin: 30px;
+    text-align: center;
+}
+@media (max-width: 600px) {
+    .user-profile-page {
+        padding: 20px 12px;
+    }
+    .user-profile-card {
+        padding: 18px;
+    }
+    .user-profile-grid {
+        grid-template-columns: 1fr;
+    }
+    .user-profile-field.full-width {
+        grid-column: auto;
+    }
+}

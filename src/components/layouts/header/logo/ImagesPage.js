@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../../resource/1.jpg";
+import logo from "../../../../resource/1.jpg";
 
 export default function ImagesPage() {
 

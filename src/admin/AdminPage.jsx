@@ -1,44 +1,28 @@
-// src/admin/AdminPage.jsx
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import BusinessUnionList from './BusinessUnionList';
-import JobCategoryList from './JobCategoryList';
-import ActivityTypeList from './ActivityTypeList';
-import { getBusinessUnions } from '../api/admin/businessUnionApi';
-import './AdminPage.css';
 
-export default function AdminPage() {
-  const [unions, setUnions] = useState([]);
+import { Link } from "react-router-dom";
+import "./AdminPage.css";
 
-  const loadUnions = () => {
-    getBusinessUnions().then(data => setUnions(data));
-  };
+const adminItems = [
+    { title: "مدیریت کاربران", description: "مشاهده و مدیریت کاربران سامانه", path: "/admin/users" },
+    { title: "مدیریت اتحادیه‌های صنفی", description: "مدیریت اتحادیه‌های صنفی شهرها", path: "/admin/business-unions" },
+    { title: "مدیریت رسته‌های شغلی", description: "مدیریت رسته‌های شغلی", path: "/admin/business-categories" },
+    { title: "مدیریت انواع فعالیت", description: "مدیریت انواع فعالیت‌های صنفی", path: "/admin/activity-types" }
+];
 
-  useEffect(() => {
-    loadUnions();
-  }, []);
-
-  return (
-    <div className="admin-container">
-      <div className="admin-header">
-        <h1>مدیریت اطلاعات پایه پروانه کسب و کار</h1>
-        <Link to="/" className="back-link">↩ بازگشت به صفحه اصلی</Link>
-      </div>
-
-      {/* ردیف اول: اتحادیه‌های صنفی (تمام عرض) */}
-      <div className="admin-row">
-        <BusinessUnionList onUnionChange={loadUnions} />
-      </div>
-
-      {/* ردیف دوم: رسته‌های شغلی (تمام عرض) */}
-      <div className="admin-row">
-        <JobCategoryList unions={unions} />
-      </div>
-
-      {/* ردیف سوم: نوع فعالیت (تمام عرض) */}
-      <div className="admin-row">
-        <ActivityTypeList />
-      </div>
-    </div>
-  );
+function AdminPage() {
+    return (
+        <div className="admin-dashboard">
+            <h1 className="admin-dashboard-title">پنل مدیریت</h1>
+            <div className="admin-dashboard-grid">
+                {adminItems.map((item) => (
+                    <Link to={item.path} className="admin-dashboard-card" key={item.path}>
+                        <h3>{item.title}</h3>
+                        <p>{item.description}</p>
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
 }
+
+export default AdminPage;
