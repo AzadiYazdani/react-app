@@ -16,13 +16,18 @@ import useBusinessTypeModal from "./hooks/useBusinessTypeModal";
 import useLocationModal from "./hooks/useLocationModal";
 
 import AdminPage from "./admin/AdminPage";
+import UsersPage from "./admin/users/UsersPage";
+import BusinessUnionsPage from "./admin/business-unions/BusinessUnionsPage";
+import BusinessCategoriesPage from "./admin/business-categories/BusinessCategoriesPage";
+import ActivityTypesPage from "./admin/activity-types/ActivityTypesPage";
+
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import UserProfilePage from "./pages/UserProfilePage";
 
 import { AuthProvider } from "./auth/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import AdminRoute from "./auth/AdminRoute";
-import UserProfilePage from "./pages/UserProfilePage";
 
 function HomePage() {
     const city = useCities();
@@ -63,9 +68,15 @@ function App() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/profile" element={<UserProfilePage />} />
+
                     <Route element={<ProtectedRoute />}>
                         <Route element={<AdminRoute />}>
                             <Route path="/admin" element={<AdminPage />} />
+                            <Route path="/admin/users" element={<UsersPage />} />
+                            <Route path="/admin/business-unions" element={<BusinessUnionsPage />} />
+                            <Route path="/admin/business-categories" element={<BusinessCategoriesPage />} />
+                            <Route path="/admin/activity-types" element={<ActivityTypesPage />} />
+
                         </Route>
                     </Route>
                 </Routes>

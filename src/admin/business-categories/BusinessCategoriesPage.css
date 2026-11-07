@@ -1,0 +1,833 @@
+
+.business-categories-page {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px;
+    color: #26364a;
+    font-family: "Vazirmatn", "IRANSansX", Tahoma, sans-serif;
+}
+
+.business-categories-page,
+.business-categories-page * {
+    box-sizing: border-box;
+}
+
+.business-categories-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.business-categories-header h2 {
+    margin: 0;
+    color: #24364d;
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.8;
+}
+
+.business-categories-header p {
+    margin: 5px 0 0;
+    color: #7b8797;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.business-categories-header > .btn {
+    flex-shrink: 0;
+    min-height: 42px;
+    padding: 9px 20px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.business-categories-page .alert {
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* پنل جست‌وجو و فیلترها */
+
+.business-categories-search-panel {
+    margin: 22px 0 18px;
+    padding: 20px;
+    border: 1px solid #e5eaf1;
+    border-radius: 13px;
+    background: #ffffff;
+    box-shadow: 0 3px 12px rgba(32, 54, 78, 0.035);
+}
+
+.business-categories-search-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 124px;
+    align-items: center;
+    gap: 10px;
+}
+
+.business-categories-search-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.business-categories-search-field .form-control {
+    width: 100%;
+    height: 46px;
+    min-height: 46px;
+    padding: 10px 45px 10px 42px;
+    border: 1px solid #dce3ec;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #34445a;
+    font-family: inherit;
+    font-size: 13px;
+    box-shadow: none;
+}
+
+.business-categories-search-field .form-control::placeholder {
+    color: #9aa6b5;
+}
+
+.business-categories-search-field .form-control:focus {
+    border-color: #75a2d2;
+    box-shadow: 0 0 0 3px rgba(57, 116, 189, 0.1);
+}
+
+.business-categories-search-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    z-index: 2;
+    width: 19px;
+    height: 19px;
+    color: #8290a2;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.business-categories-clear-input {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    display: flex;
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #8995a5;
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    line-height: 1;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.business-categories-clear-input:hover {
+    background: #f0f3f7;
+    color: #44556a;
+}
+
+.business-categories-search-button {
+    height: 46px;
+    min-height: 46px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.business-categories-filters-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 21px 0 12px;
+    padding-top: 16px;
+    border-top: 1px solid #edf0f4;
+}
+
+.business-categories-filters-heading span:first-child {
+    color: #35465c;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.business-categories-filters-heading span:last-child {
+    color: #8a96a5;
+    font-size: 11px;
+}
+
+.business-categories-filters-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.business-categories-filter {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+}
+
+.business-categories-filter .form-label {
+    margin: 0;
+    color: #647388;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.business-categories-filter .form-select {
+    width: 100%;
+    height: 42px;
+    min-height: 42px;
+    padding: 8px 36px 8px 12px;
+    border: 1px solid #dce3ec;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #34445a;
+    font-family: inherit;
+    font-size: 12px;
+    box-shadow: none;
+    direction: rtl;
+    text-align: right;
+    text-align-last: right;
+}
+
+.business-categories-filter .form-select:focus {
+    border-color: #75a2d2;
+    box-shadow: 0 0 0 3px rgba(57, 116, 189, 0.09);
+}
+
+.business-categories-filter .form-select:disabled {
+    background-color: #f5f7fa;
+    color: #9aa5b3;
+    cursor: not-allowed;
+}
+
+.business-categories-filter-loading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    color: #718096;
+    font-size: 12px;
+}
+
+.business-categories-filter-loading .spinner-border {
+    width: 15px;
+    height: 15px;
+    color: #3974bd;
+}
+
+.business-categories-filter-error {
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+/* فیلترهای انتخاب‌شده */
+
+.business-categories-active-filters {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 17px;
+    padding-top: 14px;
+    border-top: 1px solid #edf0f4;
+}
+
+.business-categories-active-filters-title {
+    flex-shrink: 0;
+    padding-top: 5px;
+    color: #7b8797;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.business-categories-filter-chips {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.business-categories-filter-chip {
+    display: inline-flex;
+    min-height: 29px;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border: 1px solid #dce7f4;
+    border-radius: 7px;
+    background: #f5f8fc;
+    color: #426184;
+    font-family: inherit;
+    font-size: 11px;
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+.business-categories-filter-chip span {
+    color: #8294a9;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.business-categories-filter-chip:hover {
+    border-color: #b8cde3;
+    background: #edf4fb;
+}
+
+.business-categories-clear-filters {
+    min-height: 29px;
+    padding: 4px 9px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #b34b4b;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.business-categories-clear-filters:hover {
+    background: #fff3f3;
+    color: #963838;
+}
+
+/* کنترل‌های عمومی */
+
+.business-categories-page .form-control,
+.business-categories-page .form-select {
+    color: #34445a;
+    font-family: inherit;
+    box-shadow: none;
+}
+
+.business-categories-page .btn {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* جدول */
+
+.business-categories-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e5eaf0;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.business-categories-table {
+    width: 100%;
+    min-width: 620px;
+    margin: 0;
+    table-layout: fixed;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.business-categories-table thead th {
+    padding: 15px 16px;
+    border-bottom: 1px solid #e4eaf1;
+    background: #f5f8fc;
+    color: #53647a;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.business-categories-table tbody td {
+    padding: 14px 16px;
+    border-color: #edf0f4;
+    color: #35465c;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.business-categories-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.business-categories-table tbody tr:hover td {
+    background: #f8fafd;
+}
+
+/* عنوان رسته */
+.business-categories-table th:first-child,
+.business-categories-table td:first-child {
+    width: 40%;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* اتحادیه */
+.business-categories-table th:nth-child(2),
+.business-categories-table td:nth-child(2) {
+    width: 40%;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* عملیات */
+.business-categories-table th:last-child,
+.business-categories-table td:last-child {
+    width: 20%;
+    min-width: 120px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.business-categories-table .sortable-column {
+    cursor: pointer;
+    user-select: none;
+}
+
+.business-categories-table .sortable-column:hover {
+    color: #3974bd;
+}
+
+.business-categories-empty {
+    height: 100px;
+    color: #8793a2 !important;
+    text-align: center;
+}
+
+.business-categories-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.business-categories-actions .btn {
+    min-width: 58px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+/* وضعیت بارگذاری */
+
+.business-categories-loading {
+    display: flex;
+    min-height: 190px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #758398;
+    font-size: 13px;
+}
+
+.business-categories-loading .spinner-border {
+    width: 22px;
+    height: 22px;
+    color: #3974bd;
+}
+
+/* پایین جدول و صفحه‌بندی */
+
+.business-categories-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 17px;
+    color: #718096;
+    font-size: 12px;
+}
+
+.business-categories-record-count {
+    color: #718096;
+    font-size: 12px;
+}
+
+.business-categories-footer-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+.business-categories-page-size {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.business-categories-page-size .form-label {
+    margin: 0;
+    color: #718096;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.business-categories-page-size .form-select {
+    width: 76px;
+    min-height: 34px;
+    padding: 5px 27px 5px 8px;
+    border-color: #dce3ec;
+    border-radius: 7px;
+    font-size: 11px;
+}
+
+.business-categories-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.business-categories-pagination span {
+    color: #596b81;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.business-categories-pagination .btn {
+    min-width: 65px;
+    border-radius: 7px;
+    font-size: 11px;
+}
+
+/* پنجره جزئیات و ثبت */
+
+.business-categories-modal .modal-content {
+    overflow: hidden;
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 16px 50px rgba(20, 38, 60, 0.17);
+    font-family: "Vazirmatn", "IRANSansX", Tahoma, sans-serif;
+}
+
+.business-categories-modal .modal-header {
+    position: relative;
+    min-height: 62px;
+    padding: 16px 22px;
+    border-bottom: 1px solid #edf0f4;
+    background: #f8fafd;
+}
+
+.business-categories-modal .modal-title {
+    color: #2b3d54;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.business-categories-modal .modal-header .btn-close {
+    position: absolute;
+    left: 18px;
+    right: auto;
+    margin: 0;
+    padding: 8px;
+}
+
+.business-categories-modal .modal-body {
+    padding: 24px;
+}
+
+.business-categories-modal .modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 22px;
+    border-top: 1px solid #edf0f4;
+}
+
+.business-categories-modal .modal-footer > * {
+    margin: 0;
+}
+
+/* نمایش جزئیات */
+
+.business-categories-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.business-categories-details > div {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border: 1px solid #e8edf3;
+    border-radius: 10px;
+    background: #fafbfd;
+}
+
+.business-categories-details span {
+    color: #8491a2;
+    font-size: 12px;
+}
+
+.business-categories-details strong {
+    overflow-wrap: anywhere;
+    color: #2d4058;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* فرم */
+
+.business-categories-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.business-categories-form-grid .form-group {
+    min-width: 0;
+}
+
+.business-categories-modal .form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #52647a;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.business-categories-modal .form-control,
+.business-categories-modal .form-select {
+    min-height: 42px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.business-categories-modal .form-select {
+    direction: rtl;
+    text-align: right;
+    text-align-last: right;
+    padding-right: 38px;
+    padding-left: 12px;
+}
+
+.business-categories-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #edf0f4;
+}
+
+.business-categories-modal-actions .btn {
+    min-width: 90px;
+    min-height: 38px;
+    border-radius: 8px;
+}
+
+/* ارتفاع کمبوهای فرم ثبت و ویرایش */
+
+.business-categories-modal .business-categories-form-grid .form-select {
+    height: 48px !important;
+    min-height: 48px !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* تبلت */
+
+@media (max-width: 900px) {
+    .business-categories-page {
+        padding: 20px;
+    }
+
+    .business-categories-search-panel {
+        padding: 16px;
+    }
+
+    .business-categories-filters-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .business-categories-filter:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .business-categories-page {
+        padding: 18px;
+    }
+
+    .business-categories-header {
+        align-items: flex-start;
+    }
+
+    .business-categories-header h2 {
+        font-size: 20px;
+    }
+
+    .business-categories-details {
+        grid-template-columns: 1fr;
+    }
+
+    .business-categories-modal .modal-dialog {
+        margin: 16px auto;
+    }
+}
+
+/* موبایل */
+
+@media (max-width: 560px) {
+    .business-categories-page {
+        padding: 14px 10px;
+    }
+
+    .business-categories-header {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .business-categories-header h2 {
+        font-size: 18px;
+    }
+
+    .business-categories-header p {
+        font-size: 12px;
+    }
+
+    .business-categories-header > .btn {
+        width: 100%;
+    }
+
+    .business-categories-search-panel {
+        margin-top: 18px;
+        padding: 13px;
+        border-radius: 11px;
+    }
+
+    .business-categories-search-form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 9px;
+    }
+
+    .business-categories-search-button {
+        width: 100%;
+        height: 42px;
+        min-height: 42px;
+    }
+
+    .business-categories-filters-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+        margin-top: 17px;
+    }
+
+    .business-categories-filters-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 11px;
+    }
+
+    .business-categories-filter:last-child {
+        grid-column: auto;
+    }
+
+    .business-categories-filter .form-select {
+        height: 42px;
+    }
+
+    .business-categories-active-filters {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .business-categories-active-filters-title {
+        padding-top: 0;
+    }
+
+    .business-categories-filter-chips {
+        width: 100%;
+    }
+
+    .business-categories-table {
+        min-width: 600px;
+    }
+
+    .business-categories-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .business-categories-footer-controls {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .business-categories-page-size {
+        gap: 6px;
+    }
+
+    .business-categories-pagination {
+        gap: 7px;
+    }
+
+    .business-categories-pagination .btn {
+        min-width: 55px;
+    }
+
+    .business-categories-modal .modal-dialog {
+        margin: 10px;
+    }
+
+    .business-categories-modal .modal-body {
+        padding: 17px;
+    }
+
+    .business-categories-modal .modal-header {
+        padding: 14px 18px;
+    }
+
+    .business-categories-modal .modal-title {
+        font-size: 14px;
+    }
+
+    .business-categories-form-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .business-categories-modal-actions {
+        justify-content: stretch;
+    }
+
+    .business-categories-modal-actions .btn {
+        flex: 1;
+    }
+
+    .business-categories-modal .modal-footer {
+        padding: 12px 16px;
+    }
+
+    .business-categories-modal .modal-footer .btn {
+        flex: 1;
+    }
+}

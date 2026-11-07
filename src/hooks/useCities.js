@@ -63,49 +63,34 @@ export default function useCities() {
 
 
     // ---------------- شهرها ----------------
-
     const loadCities = async (provinceId) => {
-
         setLoadingCities(true);
 
-
         try {
-
             const response = await fetch(
                 `${config.API_BASE_URL}/location/provinces/${provinceId}/cities`
             );
 
-
             const data = await response.json();
 
+            let result = [];
 
             if (Array.isArray(data)) {
-                setCities(data);
-            }
-            else if (Array.isArray(data.data)) {
-                setCities(data.data);
-            }
-            else {
-                setCities([]);
+                result = data;
+            } else if (Array.isArray(data.data)) {
+                result = data.data;
             }
 
-
-        }
-        catch(error){
-
+            setCities(result);
+            return result;
+        } catch (error) {
             console.error("loadCities:", error);
             setCities([]);
-
-        }
-        finally {
-
+            return [];
+        } finally {
             setLoadingCities(false);
-
         }
-
     };
-
-
 
     // ---------------- شروع انتخاب ----------------
 

@@ -1,3 +1,4 @@
+
 import axiosInstance from "../axios";
 
 export const getBusinessCategories = async () => {
@@ -15,8 +16,11 @@ export const getBusinessCategoryById = async (id) => {
     return response.data.data;
 };
 
-export const getBusinessCategoriesByParentId = async (parentId) => {
-    const response = await axiosInstance.get(`/businesscategory/parent/${parentId}`);
+export const getBusinessCategoriesByUnionId = async (businessUnionId) => {
+    const response = await axiosInstance.get(
+        `/businesscategory/union/${businessUnionId}`
+    );
+
     return response.data.data;
 };
 
@@ -25,17 +29,17 @@ export const searchBusinessCategories = async (title) => {
     return response.data.data;
 };
 
-export const addBusinessCategory = async (parentId, title) => {
+export const addBusinessCategory = async (businessUnionId, title) => {
     const response = await axiosInstance.post("/businesscategory/add", {
-        parentId,
+        businessUnionId,
         title
     });
     return response.data.data;
 };
 
-export const updateBusinessCategory = async (id, parentId, title) => {
+export const updateBusinessCategory = async (id, businessUnionId, title) => {
     const response = await axiosInstance.put(`/businesscategory/update/${id}`, {
-        parentId,
+        businessUnionId,
         title
     });
     return response.data.data;

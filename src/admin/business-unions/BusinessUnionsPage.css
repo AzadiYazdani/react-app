@@ -1,0 +1,802 @@
+.business-unions-page {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px;
+    color: #26364a;
+    font-family: "Vazirmatn", "IRANSansX", Tahoma, sans-serif;
+}
+
+.business-unions-page,
+.business-unions-page * {
+    box-sizing: border-box;
+}
+
+.business-unions-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.business-unions-header h2 {
+    margin: 0;
+    color: #24364d;
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.8;
+}
+
+.business-unions-header p {
+    margin: 5px 0 0;
+    color: #7b8797;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.business-unions-header > .btn {
+    flex-shrink: 0;
+    min-height: 42px;
+    padding: 9px 20px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.business-unions-page .alert {
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* پنل جست‌وجو و فیلترها */
+
+.business-unions-search-panel {
+    margin: 22px 0 18px;
+    padding: 20px;
+    border: 1px solid #e5eaf1;
+    border-radius: 13px;
+    background: #ffffff;
+    box-shadow: 0 3px 12px rgba(32, 54, 78, 0.035);
+}
+
+.business-unions-search-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 124px;
+    align-items: center;
+    gap: 10px;
+}
+
+.business-unions-search-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.business-unions-search-field .form-control {
+    width: 100%;
+    height: 46px;
+    min-height: 46px;
+    padding: 10px 45px 10px 42px;
+    border: 1px solid #dce3ec;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #34445a;
+    font-family: inherit;
+    font-size: 13px;
+    box-shadow: none;
+}
+
+.business-unions-search-field .form-control::placeholder {
+    color: #9aa6b5;
+}
+
+.business-unions-search-field .form-control:focus {
+    border-color: #75a2d2;
+    box-shadow: 0 0 0 3px rgba(57, 116, 189, 0.1);
+}
+
+.business-unions-search-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    z-index: 2;
+    width: 19px;
+    height: 19px;
+    color: #8290a2;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.business-unions-clear-input {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    display: flex;
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #8995a5;
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    line-height: 1;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.business-unions-clear-input:hover {
+    background: #f0f3f7;
+    color: #44556a;
+}
+
+.business-unions-search-button {
+    height: 46px;
+    min-height: 46px;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.business-unions-filters-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 21px 0 12px;
+    padding-top: 16px;
+    border-top: 1px solid #edf0f4;
+}
+
+.business-unions-filters-heading span:first-child {
+    color: #35465c;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.business-unions-filters-heading span:last-child {
+    color: #8a96a5;
+    font-size: 11px;
+}
+
+.business-unions-filters-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.business-unions-filter {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+}
+
+.business-unions-filter .form-label {
+    margin: 0;
+    color: #647388;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.business-unions-filter .form-select {
+    width: 100%;
+    height: 42px;
+    min-height: 42px;
+    padding: 8px 36px 8px 12px;
+    border: 1px solid #dce3ec;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #34445a;
+    font-family: inherit;
+    font-size: 12px;
+    box-shadow: none;
+    direction: rtl;
+    text-align: right;
+    text-align-last: right;
+}
+
+.business-unions-filter .form-select:focus {
+    border-color: #75a2d2;
+    box-shadow: 0 0 0 3px rgba(57, 116, 189, 0.09);
+}
+
+.business-unions-filter .form-select:disabled {
+    background-color: #f5f7fa;
+    color: #9aa5b3;
+    cursor: not-allowed;
+}
+
+/* فیلترهای انتخاب‌شده */
+
+.business-unions-active-filters {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 17px;
+    padding-top: 14px;
+    border-top: 1px solid #edf0f4;
+}
+
+.business-unions-active-filters-title {
+    flex-shrink: 0;
+    padding-top: 5px;
+    color: #7b8797;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.business-unions-filter-chips {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.business-unions-filter-chip {
+    display: inline-flex;
+    min-height: 29px;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border: 1px solid #dce7f4;
+    border-radius: 7px;
+    background: #f5f8fc;
+    color: #426184;
+    font-family: inherit;
+    font-size: 11px;
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+.business-unions-filter-chip span {
+    color: #8294a9;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.business-unions-filter-chip:hover {
+    border-color: #b8cde3;
+    background: #edf4fb;
+}
+
+.business-unions-clear-filters {
+    min-height: 29px;
+    padding: 4px 9px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #b34b4b;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.business-unions-clear-filters:hover {
+    background: #fff3f3;
+    color: #963838;
+}
+
+/* کنترل‌های عمومی */
+
+.business-unions-page .form-control,
+.business-unions-page .form-select {
+    color: #34445a;
+    font-family: inherit;
+    box-shadow: none;
+}
+
+.business-unions-page .btn {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* جدول */
+
+.business-unions-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e5eaf0;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.business-unions-table {
+    width: 100%;
+    min-width: 950px;
+    margin: 0;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.business-unions-table thead th {
+    padding: 15px 14px;
+    border-bottom: 1px solid #e4eaf1;
+    background: #f5f8fc;
+    color: #53647a;
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.business-unions-table tbody td {
+    padding: 14px;
+    border-color: #edf0f4;
+    color: #35465c;
+    font-size: 13px;
+    line-height: 1.8;
+    vertical-align: middle;
+}
+
+.business-unions-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.business-unions-table tbody tr:hover td {
+    background: #f8fafd;
+}
+
+.business-unions-table th:first-child,
+.business-unions-table td:first-child {
+    width: 75px;
+    text-align: center;
+}
+
+.business-unions-table th:nth-child(2) {
+    min-width: 190px;
+}
+
+.business-unions-table th:nth-child(3),
+.business-unions-table th:nth-child(4) {
+    min-width: 110px;
+}
+
+.business-unions-table th:nth-child(5) {
+    min-width: 140px;
+}
+
+.business-unions-table th:nth-child(6) {
+    min-width: 120px;
+}
+
+.business-unions-table th:last-child,
+.business-unions-table td:last-child {
+    width: 150px;
+    text-align: center;
+}
+
+.business-unions-table .sortable-column {
+    cursor: pointer;
+    user-select: none;
+}
+
+.business-unions-table .sortable-column:hover {
+    color: #3974bd;
+}
+
+.business-unions-empty {
+    height: 100px;
+    color: #8793a2 !important;
+    text-align: center;
+}
+
+.business-unions-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.business-unions-actions .btn {
+    min-width: 58px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+/* وضعیت بارگذاری */
+
+.business-unions-loading {
+    display: flex;
+    min-height: 190px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #758398;
+    font-size: 13px;
+}
+
+.business-unions-loading .spinner-border {
+    width: 22px;
+    height: 22px;
+    color: #3974bd;
+}
+
+/* پایین جدول و صفحه‌بندی */
+
+.business-unions-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 17px;
+    color: #718096;
+    font-size: 12px;
+}
+
+.business-unions-record-count {
+    color: #718096;
+    font-size: 12px;
+}
+
+.business-unions-footer-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+.business-unions-page-size {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.business-unions-page-size .form-label {
+    margin: 0;
+    color: #718096;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.business-unions-page-size .form-select {
+    width: 76px;
+    min-height: 34px;
+    padding: 5px 27px 5px 8px;
+    border-color: #dce3ec;
+    border-radius: 7px;
+    font-size: 11px;
+}
+
+.business-unions-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.business-unions-pagination span {
+    color: #596b81;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.business-unions-pagination .btn {
+    min-width: 65px;
+    border-radius: 7px;
+    font-size: 11px;
+}
+
+/* پنجره جزئیات و ثبت */
+
+.business-unions-modal .modal-content {
+    overflow: hidden;
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 16px 50px rgba(20, 38, 60, 0.17);
+    font-family: "Vazirmatn", "IRANSansX", Tahoma, sans-serif;
+}
+
+.business-unions-modal .modal-header {
+    position: relative;
+    min-height: 62px;
+    padding: 16px 22px;
+    border-bottom: 1px solid #edf0f4;
+    background: #f8fafd;
+}
+
+.business-unions-modal .modal-title {
+    color: #2b3d54;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.business-unions-modal .modal-header .btn-close {
+    position: absolute;
+    left: 18px;
+    right: auto;
+    margin: 0;
+    padding: 8px;
+}
+
+.business-unions-modal .modal-body {
+    padding: 24px;
+}
+
+.business-unions-modal .modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 22px;
+    border-top: 1px solid #edf0f4;
+}
+
+.business-unions-modal .modal-footer > * {
+    margin: 0;
+}
+
+/* نمایش جزئیات */
+
+.business-unions-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.business-unions-details > div {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border: 1px solid #e8edf3;
+    border-radius: 10px;
+    background: #fafbfd;
+}
+
+.business-unions-details span {
+    color: #8491a2;
+    font-size: 12px;
+}
+
+.business-unions-details strong {
+    overflow-wrap: anywhere;
+    color: #2d4058;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* فرم ثبت و ویرایش */
+
+.business-unions-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.business-unions-form-grid .form-group {
+    min-width: 0;
+}
+
+.business-unions-form-full {
+    grid-column: 1 / -1;
+}
+
+.business-unions-modal .form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #52647a;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.business-unions-modal .form-control,
+.business-unions-modal .form-select {
+    min-height: 42px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.business-unions-modal .form-select {
+    direction: rtl;
+    text-align: right;
+    text-align-last: right;
+    padding-right: 38px;
+    padding-left: 12px;
+}
+
+.business-unions-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #edf0f4;
+}
+
+.business-unions-modal-actions .btn {
+    min-width: 90px;
+    min-height: 38px;
+    border-radius: 8px;
+}
+
+/* تبلت */
+
+@media (max-width: 900px) {
+    .business-unions-page {
+        padding: 20px;
+    }
+
+    .business-unions-search-panel {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .business-unions-page {
+        padding: 18px;
+    }
+
+    .business-unions-header {
+        align-items: flex-start;
+    }
+
+    .business-unions-header h2 {
+        font-size: 20px;
+    }
+
+    .business-unions-details {
+        grid-template-columns: 1fr;
+    }
+
+    .business-unions-modal .modal-dialog {
+        margin: 16px auto;
+    }
+}
+
+/* موبایل */
+
+@media (max-width: 560px) {
+    .business-unions-page {
+        padding: 14px 10px;
+    }
+
+    .business-unions-header {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .business-unions-header h2 {
+        font-size: 18px;
+    }
+
+    .business-unions-header p {
+        font-size: 12px;
+    }
+
+    .business-unions-header > .btn {
+        width: 100%;
+    }
+
+    .business-unions-search-panel {
+        margin-top: 18px;
+        padding: 13px;
+        border-radius: 11px;
+    }
+
+    .business-unions-search-form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 9px;
+    }
+
+    .business-unions-search-button {
+        width: 100%;
+        height: 42px;
+        min-height: 42px;
+    }
+
+    .business-unions-filters-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+        margin-top: 17px;
+    }
+
+    .business-unions-filters-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 11px;
+    }
+
+    .business-unions-filter .form-select {
+        height: 42px;
+    }
+
+    .business-unions-active-filters {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .business-unions-active-filters-title {
+        padding-top: 0;
+    }
+
+    .business-unions-filter-chips {
+        width: 100%;
+    }
+
+    .business-unions-table {
+        min-width: 900px;
+    }
+
+    .business-unions-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .business-unions-footer-controls {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .business-unions-page-size {
+        gap: 6px;
+    }
+
+    .business-unions-pagination {
+        gap: 7px;
+    }
+
+    .business-unions-pagination .btn {
+        min-width: 55px;
+    }
+
+    .business-unions-modal .modal-dialog {
+        margin: 10px;
+    }
+
+    .business-unions-modal .modal-body {
+        padding: 17px;
+    }
+
+    .business-unions-modal .modal-header {
+        padding: 14px 18px;
+    }
+
+    .business-unions-modal .modal-title {
+        font-size: 14px;
+    }
+
+    .business-unions-form-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .business-unions-form-full {
+        grid-column: auto;
+    }
+
+    .business-unions-modal-actions {
+        justify-content: stretch;
+    }
+
+    .business-unions-modal-actions .btn {
+        flex: 1;
+    }
+
+    .business-unions-modal .modal-footer {
+        padding: 12px 16px;
+    }
+
+    .business-unions-modal .modal-footer .btn {
+        flex: 1;
+    }
+}
